@@ -47,7 +47,7 @@ const Login = (props) => {
             //reset the form
             setForm(blank)
             //send user to home page
-            props.history.push('/');
+            props.history.push('/dashboard');
         });
 
     }

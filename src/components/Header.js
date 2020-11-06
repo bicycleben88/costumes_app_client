@@ -12,7 +12,7 @@ const Header = (props) => {
             //remove token saved in local storage
             window.localStorage.removeItem("token");
             //setGlobalState token to null;
-            setGlobalState({...globalState, token: null})
+            setGlobalState({...globalState, token: null});
         }}>Log Out</Link>
     )
 
