@@ -6,6 +6,7 @@ import Signup from './pages/Signup';
 import LogIn from './pages/Login';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
+import New from './pages/New'
 import { Switch, Link, Route } from 'react-router';
 
 export const GlobalContext = React.createContext(null);
@@ -15,7 +16,7 @@ function App() {
   //Create global state for multiple components to use
   const [globalState, setGlobalState] = React.useState({
     //url of API
-    url: "http://localhost:4500", 
+    url: "https://costumes-api.herokuapp.com", 
     //token will store jwt after user logs in
     token: null
   });
@@ -38,10 +39,10 @@ function App() {
       <Header />
       <main>  
         <Switch>
-          <Route exact path="/" render={(routerProps => <Home {...routerProps} />)} />
+          <Route exact path="/" render={(routerProps => globalState.token ? <Dashboard {...routerProps} /> : <Home {...routerProps} />)} />
           <Route exact path="/signup" render={(routerProps => <Signup {...routerProps} />)} />
           <Route exact path="/login" render={(routerProps => <LogIn {...routerProps} />) } />
-          <Route exact path="/dashboard" render={(routerProps => <Dashboard {...routerProps} />)} />
+          <Route exact path="/new" render={(routerProps => <New {...routerProps} />)} />
         </Switch>
       </main>
     </div>
