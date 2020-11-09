@@ -27,19 +27,26 @@ const Dashboard = (props) => {
     }, []);
     
 
-    return (
-        <>
-           <h1>Welcome to your Dashboard</h1>
-           <Link to="/new"><h2>Make a new Costume</h2></Link>
-           <div>
-                {
-                    costumes ? costumes.map(costume => (
-                        <img src={costume.img} />
-                    )): null
-                }
-           </div>
-        </>
-    )
+    const loaded = () => {
+        return (
+           <>
+              <h1>Welcome to your Dashboard</h1>
+              <Link to="/new"><h2>Make a new Costume</h2></Link>
+              <div>
+                   {costumes.map((costume) => {
+                       return(
+                           <div key={costume._id} className="dashboard-costume">
+                                <h3>{costume.name}</h3>
+                                <img src={costume.accessory.img} />
+                           </div>
+                       )
+                   })}
+              </div>
+           </>
+       )
+    }
+
+    return costumes ? loaded() : <h4>...Getting Your Costumes</h4>
 }
 
 export default Dashboard

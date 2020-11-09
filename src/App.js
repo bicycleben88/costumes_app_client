@@ -24,7 +24,8 @@ function App() {
   const blankCostume = {
     top: null, 
     bottom: null, 
-    accessory: null
+    accessory: null,
+    name: null
   }
 
   //load initial state
@@ -40,13 +41,14 @@ function App() {
 
   //Add Costume to mongoDB
   const addCostume = (costume) => {
+    console.log(costume)
     fetch(`${globalState.url}/costumes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `bearer ${globalState.token}`
       },
-      body: JSON.stringify({costume})
+      body: JSON.stringify(costume)
     })
   }
   
