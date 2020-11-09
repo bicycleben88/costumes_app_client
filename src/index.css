@@ -30,3 +30,13 @@ nav {
 .accessories {
   width: 150px;
 }
+
+/* dashboard */
+
+.dashboard-costume {
+  display: flex;
+  justify-content: space-between;
+}
+.dashboard-costume img {
+  width: 150px
+}
