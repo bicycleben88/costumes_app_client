@@ -21,11 +21,16 @@ function App() {
     token: null
   });
 
+  const blankCostume = {
+    top: null, 
+    bottom: null, 
+    accessory: null
+  }
+
   //load initial state
   React.useEffect(() => {
     //get token from local storage
     const token = JSON.parse(window.localStorage.getItem("token"));
-    console.log(token);
     //if there is a token in local storage
     if (token) {
       //set globalState to include the token stored in local storage
@@ -33,6 +38,18 @@ function App() {
     }
   }, []);
 
+  //Add Costume to mongoDB
+  const addCostume = (costume) => {
+    fetch(`${globalState.url}/costumes`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${globalState.token}`
+      },
+      body: JSON.stringify({costume})
+    })
+  }
+  
   return (
     <GlobalContext.Provider value={{globalState, setGlobalState}}>
     <div className="App">
@@ -42,7 +59,7 @@ function App() {
           <Route exact path="/" render={(routerProps => globalState.token ? <Dashboard {...routerProps} /> : <Home {...routerProps} />)} />
           <Route exact path="/signup" render={(routerProps => <Signup {...routerProps} />)} />
           <Route exact path="/login" render={(routerProps => <LogIn {...routerProps} />) } />
-          <Route exact path="/new" render={(routerProps => <New {...routerProps} />)} />
+          <Route exact path="/new" render={(routerProps => <New {...routerProps} blankCostume={blankCostume} addCostume={addCostume} cd />)} />
         </Switch>
       </main>
     </div>
