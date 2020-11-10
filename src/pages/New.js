@@ -6,7 +6,7 @@ const New = (props) => {
   const {url} = globalState;
   //Define state and setState for costume items
   const [items, setItems] = React.useState(null);
-  //Define state and setState for costume
+  //Define state and setState for costume taken from app.js as props
   const [costume, setCostume] = React.useState(props.blankCostume);
   //Get costume Items from mongoDB
   const getItems = async () => {

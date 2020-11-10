@@ -6,6 +6,7 @@ import Signup from './pages/Signup';
 import LogIn from './pages/Login';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
+import Change from './pages/Change'
 import New from './pages/New'
 import { Switch, Link, Route } from 'react-router';
 
@@ -21,6 +22,7 @@ function App() {
     token: null
   });
 
+  
   const blankCostume = {
     top: null, 
     bottom: null, 
@@ -28,6 +30,7 @@ function App() {
     name: null
   }
 
+  const [foundCostume, setFoundCostume] = React.useState(blankCostume)
   //load initial state
   React.useEffect(() => {
     //get token from local storage
@@ -41,7 +44,6 @@ function App() {
 
   //Add Costume to mongoDB
   const addCostume = (costume) => {
-    console.log(costume)
     fetch(`${globalState.url}/costumes`, {
       method: "POST",
       headers: {
@@ -52,16 +54,22 @@ function App() {
     })
   }
   
+  //update found costume passed down from dashboard
+  const findCostume = (costume) => {
+    setFoundCostume(costume);
+  }
+
   return (
     <GlobalContext.Provider value={{globalState, setGlobalState}}>
     <div className="App">
       <Header />
       <main>  
         <Switch>
-          <Route exact path="/" render={(routerProps => globalState.token ? <Dashboard {...routerProps} /> : <Home {...routerProps} />)} />
+          <Route exact path="/" render={(routerProps => globalState.token ? <Dashboard {...routerProps} findCostume={findCostume} /> : <Home {...routerProps} />)} />
           <Route exact path="/signup" render={(routerProps => <Signup {...routerProps} />)} />
           <Route exact path="/login" render={(routerProps => <LogIn {...routerProps} />) } />
           <Route exact path="/new" render={(routerProps => <New {...routerProps} blankCostume={blankCostume} addCostume={addCostume} cd />)} />
+          <Route exact path="/change" render={(routerProps => <Change {...routerProps} foundCostume={foundCostume} />)} />
         </Switch>
       </main>
     </div>
