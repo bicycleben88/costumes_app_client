@@ -36,6 +36,12 @@ const Dashboard = (props) => {
                    {costumes.map((costume) => {
                        return(
                            <div key={costume._id} className="dashboard-costume">
+                                <button 
+                                onClick={() => {
+                                    props.findCostume(costume)
+                                    props.history.push("/change")}}>
+                                    Make Changes?
+                                </button>
                                 <h3>{costume.name}</h3>
                                 <img src={costume.accessory.img} />
                            </div>
