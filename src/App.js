@@ -21,16 +21,31 @@ function App() {
     //token will store jwt after user logs in
     token: null
   });
-
-  
+  //create blank costume to send to new and change page for their states
   const blankCostume = {
     top: null, 
     bottom: null, 
     accessory: null,
     name: null
   }
-
+  //create found costume to send to change page
   const [foundCostume, setFoundCostume] = React.useState(blankCostume)
+  const [costumes, setCostumes] = React.useState(null)
+
+  //Get Costumes from mongoDB
+  const getCostumes = async () => {
+      //Make API call
+      const response = await fetch(`${globalState.url}/costumes`, {
+          headers: {
+              Authorization: `bearer ${globalState.token}`
+          }
+      });
+      //Convert API info into json 
+      const data = await response.json();
+      //Set State with json Data
+      await setCostumes(data);
+  }
+  
   //load initial state
   React.useEffect(() => {
     //get token from local storage
@@ -65,11 +80,31 @@ function App() {
       <Header />
       <main>  
         <Switch>
-          <Route exact path="/" render={(routerProps => globalState.token ? <Dashboard {...routerProps} findCostume={findCostume} /> : <Home {...routerProps} />)} />
-          <Route exact path="/signup" render={(routerProps => <Signup {...routerProps} />)} />
-          <Route exact path="/login" render={(routerProps => <LogIn {...routerProps} />) } />
-          <Route exact path="/new" render={(routerProps => <New {...routerProps} blankCostume={blankCostume} addCostume={addCostume} cd />)} />
-          <Route exact path="/change" render={(routerProps => <Change {...routerProps} foundCostume={foundCostume} />)} />
+          <Route exact path="/" 
+            render={(routerProps => globalState.token ? 
+              <Dashboard {...routerProps} 
+              findCostume={findCostume}  
+              costumes={costumes} 
+              getCostumes={getCostumes}
+              blankCostume={blankCostume}/> : 
+              <Home {...routerProps} />)} 
+          />
+          <Route exact path="/signup" 
+            render={(routerProps => <Signup {...routerProps} />)} 
+          />
+          <Route exact path="/login" 
+            render={(routerProps => <LogIn {...routerProps} />) } 
+          />
+          <Route exact path="/new" 
+            render={(routerProps => <New {...routerProps} 
+            blankCostume={blankCostume} 
+            addCostume={addCostume} cd />)} 
+          />
+          <Route exact path="/change" 
+            render={(routerProps => <Change {...routerProps} 
+            foundCostume={foundCostume} 
+            costumes={costumes} />)} 
+          />
         </Switch>
       </main>
     </div>

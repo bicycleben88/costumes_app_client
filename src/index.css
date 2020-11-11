@@ -40,3 +40,13 @@ nav {
 .dashboard-costume img {
   width: 150px
 }
+
+/* Change Page */
+.change-container {
+  display: flex;
+  justify-content: space-around; 
+  max-width: 900px;
+}
+.change-costume img {
+  width: 150px
+}
