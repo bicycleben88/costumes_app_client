@@ -16,11 +16,10 @@ export const GlobalContext = React.createContext(null);
 function App() {
   //Create global state for multiple components to use
   const [globalState, setGlobalState] = React.useState({
-    //url of API
     url: "https://costumes-api.herokuapp.com", 
-    //token will store jwt after user logs in
     token: null
   });
+
   //create blank costume to send to new and change page for their states
   const blankCostume = {
     top: null, 
@@ -28,36 +27,36 @@ function App() {
     accessory: null,
     name: null
   }
+
   //create found costume to send to change page
   const [foundCostume, setFoundCostume] = React.useState(blankCostume)
-  const [costumes, setCostumes] = React.useState(null)
 
-  //Get Costumes from mongoDB
+  //Get Costumes 
   const getCostumes = async () => {
-      //Make API call
       const response = await fetch(`${globalState.url}/costumes`, {
           headers: {
               Authorization: `bearer ${globalState.token}`
           }
       });
-      //Convert API info into json 
       const data = await response.json();
-      //Set State with json Data
-      await setCostumes(data);
+      return data;
   }
   
-  //load initial state
+  //Get Items
+  const getItems = async () => {
+      const response = await fetch(`${globalState.url}/items`);
+      const data = await response.json();
+      return data;
+  }
+
   React.useEffect(() => {
-    //get token from local storage
     const token = JSON.parse(window.localStorage.getItem("token"));
-    //if there is a token in local storage
     if (token) {
-      //set globalState to include the token stored in local storage
       setGlobalState({...globalState, token: token.token})
     }
   }, []);
 
-  //Add Costume to mongoDB
+  //Add Costume 
   const addCostume = (costume) => {
     fetch(`${globalState.url}/costumes`, {
       method: "POST",
@@ -71,7 +70,8 @@ function App() {
   
   //update found costume passed down from dashboard
   const findCostume = (costume) => {
-    setFoundCostume(costume);
+    console.log(costume)
+     setFoundCostume(costume);
   }
 
   return (
@@ -84,26 +84,29 @@ function App() {
             render={(routerProps => globalState.token ? 
               <Dashboard {...routerProps} 
               findCostume={findCostume}  
-              costumes={costumes} 
               getCostumes={getCostumes}
               blankCostume={blankCostume}/> : 
               <Home {...routerProps} />)} 
           />
           <Route exact path="/signup" 
-            render={(routerProps => <Signup {...routerProps} />)} 
+            render={(routerProps => 
+            <Signup {...routerProps} />)} 
           />
           <Route exact path="/login" 
-            render={(routerProps => <LogIn {...routerProps} />) } 
+            render={(routerProps => 
+            <LogIn {...routerProps} />) } 
           />
           <Route exact path="/new" 
-            render={(routerProps => <New {...routerProps} 
-            blankCostume={blankCostume} 
-            addCostume={addCostume} cd />)} 
+            render={(routerProps => 
+            <New {...routerProps} 
+              blankCostume={blankCostume} 
+              addCostume={addCostume} 
+              getItems={getItems} />)} 
           />
           <Route exact path="/change" 
-            render={(routerProps => <Change {...routerProps} 
-            foundCostume={foundCostume} 
-            costumes={costumes} />)} 
+            render={(routerProps => 
+            <Change {...routerProps} 
+              costume={foundCostume}  />)} 
           />
         </Switch>
       </main>

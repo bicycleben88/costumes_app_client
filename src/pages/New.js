@@ -1,31 +1,17 @@
 import React from 'react';
-import {GlobalContext} from '../App'
+
 const New = (props) => {
-  //Deconstruct globalState and setGlobalState and pass into useContext
-  const {globalState, setGlobalState} = React.useContext(GlobalContext);
-  const {url} = globalState;
-  //Define state and setState for costume items
   const [items, setItems] = React.useState(null);
-  //Define state and setState for costume taken from app.js as props
   const [costume, setCostume] = React.useState(props.blankCostume);
-  //Get costume Items from mongoDB
-  const getItems = async () => {
-      //Fetch costume Items
-      const response = await fetch(`${url}/items`);
-      //Convert API info into json 
-      const data = await response.json();
-      //Set State with json Data
-      setItems(data);
-  }
+  const { getItems } = props
+
   //handle adding costume to state
   const addToCostume = (item) => {
       setCostume({...costume, [item.type]: item});
   }
   //add costume 
   const addCostume = (costume) => {
-    //use function from app.js
     props.addCostume(costume);
-    //return to dashboard page
     props.history.push('/')
   }
   //handle input change
@@ -33,10 +19,11 @@ const New = (props) => {
       setCostume({...costume, [event.target.name]: event.target.value})
   }
   //Set initial state 
-  React.useEffect(() => {
-      //Make API call
-      getItems();
+  React.useEffect(async () => {
+     const data =  await getItems();
+     await setItems(data);
   }, []);
+
     const loaded = () => {
         return (
            <>

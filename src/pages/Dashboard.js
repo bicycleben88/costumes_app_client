@@ -1,13 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {GlobalContext} from '../App';
 
 const Dashboard = (props) => {
-    //Destructure globalState and setGlobalState and pass into useContext
-    const {globalState, setGlobalState} = React.useContext(GlobalContext);
-    const {url, token} = globalState;
-    const { costumes, getCostumes } = props
-    const [userCostumes, setUserCostumes] = React.useState(costumes)
+    const { getCostumes } = props
+    const [userCostumes, setUserCostumes] = React.useState(null)
+
+    React.useEffect(async () => {
+       const data = await getCostumes();
+       await setUserCostumes(data);
+    }, []);
     
 
     const loaded = () => {

@@ -13,6 +13,9 @@ const Header = (props) => {
             window.localStorage.removeItem("token");
             //setGlobalState token to null;
             setGlobalState({...globalState, token: null});
+            if (props.history !== undefined) {
+                props.history.push('/');
+            }
         }}>Log Out</Link>
     )
 
