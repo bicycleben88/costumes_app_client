@@ -47,6 +47,8 @@ nav {
   justify-content: space-around; 
   max-width: 900px;
 }
-.change-costume img {
+.change-costume img,
+.change-all-costumes img {
   width: 150px
 }
+

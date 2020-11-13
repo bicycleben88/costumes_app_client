@@ -16,6 +16,7 @@ const Header = (props) => {
             if (props.history !== undefined) {
                 props.history.push('/');
             }
+            // props.history.push('/');
         }}>Log Out</Link>
     )
 

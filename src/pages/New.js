@@ -1,9 +1,11 @@
 import React from 'react';
+import { GlobalContext } from '../App';
 
 const New = (props) => {
+  const { globalState } = React.useContext(GlobalContext);
+  const { url } = globalState;
   const [items, setItems] = React.useState(null);
   const [costume, setCostume] = React.useState(props.blankCostume);
-  const { getItems } = props
 
   //handle adding costume to state
   const addToCostume = (item) => {
@@ -18,10 +20,15 @@ const New = (props) => {
   const handleChange = (event) => {
       setCostume({...costume, [event.target.name]: event.target.value})
   }
-  //Set initial state 
-  React.useEffect(async () => {
-     const data =  await getItems();
-     await setItems(data);
+  //Get Items
+  const getItems = async () => {
+    const response = await fetch(`${url}/items`);
+    const data = await response.json();
+    await setItems(data);
+    }
+
+  React.useEffect(() => {
+    getItems();
   }, []);
 
     const loaded = () => {

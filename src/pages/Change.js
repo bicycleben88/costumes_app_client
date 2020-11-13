@@ -1,8 +1,30 @@
 import React from 'react';
+import {GlobalContext} from '../App'
+
 const Change = (props) => {
+  const {globalState, setGlobalState} = React.useContext(GlobalContext);
+  const { url, token } = globalState;
   const { costume } = props
-  const [userCostume, setUserCostume] = React.useState(costume)
-  console.log(userCostume)
+  const [userCostume, setUserCostume] = React.useState(null);
+  const [items, setItems] = React.useState(null);
+
+  // React.useEffect(() => {
+  //   setUserCostume(costume);
+  // }, []);
+
+ //Set initial state 
+  React.useEffect(async () => {
+    await getItems();
+    await setUserCostume(costume);
+  }, []);
+
+  //Get Items
+  const getItems = async () => {
+    const response = await fetch(`${url}/items`);
+    const data = await response.json();
+    await setItems(data);
+    }
+
   const loaded = () => {  
     return (
         <div className="change-container">
@@ -16,7 +38,7 @@ const Change = (props) => {
             </div>
             <div>
               <h4>Accessory</h4>
-              {/* <img src={userCostume.accessory.img}  /> */}
+              <img src={userCostume.accessory.img}  />
             </div>
           </div>
           <div className="change-all-costumes">
@@ -29,6 +51,13 @@ const Change = (props) => {
             </div>
             <div>
               <h4>Accessories</h4>
+              {items.map((item) => {
+                return (
+                  <div>
+                    <img src={item.img}/>
+                  </div>
+                )
+              })}
             </div>
           </div> 
         </div>
