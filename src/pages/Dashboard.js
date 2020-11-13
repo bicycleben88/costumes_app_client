@@ -1,15 +1,27 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { GlobalContext } from '../App';
 
 const Dashboard = (props) => {
-    const { getCostumes } = props
-    const [userCostumes, setUserCostumes] = React.useState(null)
-
-    React.useEffect(async () => {
-       const data = await getCostumes();
-       await setUserCostumes(data);
-    }, []);
+    const {globalState, setGlobalState} = React.useContext(GlobalContext);
+    const { url, token } = globalState;
     
+    const [userCostumes, setUserCostumes] = React.useState(null)
+    
+    React.useEffect(() => {
+        getCostumes();
+    },[]
+    )
+     //Get Costumes 
+  const getCostumes = async () => {
+    const response = await fetch(`${url}/costumes`, {
+        headers: {
+            Authorization: `bearer ${token}`
+        }
+    });
+    const data = await response.json();
+    setUserCostumes(data)
+    }
 
     const loaded = () => {
         return (

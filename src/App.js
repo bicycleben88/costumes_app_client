@@ -29,26 +29,14 @@ function App() {
   }
 
   //create found costume to send to change page
-  const [foundCostume, setFoundCostume] = React.useState(blankCostume)
-
-  //Get Costumes 
-  const getCostumes = async () => {
-      const response = await fetch(`${globalState.url}/costumes`, {
-          headers: {
-              Authorization: `bearer ${globalState.token}`
-          }
-      });
-      const data = await response.json();
-      return data;
+  const [foundCostume, setFoundCostume] = React.useState(blankCostume);
+  
+  // update found costume passed down from dashboard
+  const findCostume = (costume) => {
+    setFoundCostume(costume);
   }
   
-  //Get Items
-  const getItems = async () => {
-      const response = await fetch(`${globalState.url}/items`);
-      const data = await response.json();
-      return data;
-  }
-
+  //Change state when user logs on/off
   React.useEffect(() => {
     const token = JSON.parse(window.localStorage.getItem("token"));
     if (token) {
@@ -56,7 +44,7 @@ function App() {
     }
   }, []);
 
-  //Add Costume 
+  // Add Costume 
   const addCostume = (costume) => {
     fetch(`${globalState.url}/costumes`, {
       method: "POST",
@@ -68,11 +56,6 @@ function App() {
     })
   }
   
-  //update found costume passed down from dashboard
-  const findCostume = (costume) => {
-    console.log(costume)
-     setFoundCostume(costume);
-  }
 
   return (
     <GlobalContext.Provider value={{globalState, setGlobalState}}>
@@ -83,9 +66,8 @@ function App() {
           <Route exact path="/" 
             render={(routerProps => globalState.token ? 
               <Dashboard {...routerProps} 
-              findCostume={findCostume}  
-              getCostumes={getCostumes}
-              blankCostume={blankCostume}/> : 
+              blankCostume={blankCostume}
+              findCostume={findCostume} /> : 
               <Home {...routerProps} />)} 
           />
           <Route exact path="/signup" 
@@ -100,8 +82,7 @@ function App() {
             render={(routerProps => 
             <New {...routerProps} 
               blankCostume={blankCostume} 
-              addCostume={addCostume} 
-              getItems={getItems} />)} 
+              addCostume={addCostume} />)} 
           />
           <Route exact path="/change" 
             render={(routerProps => 
