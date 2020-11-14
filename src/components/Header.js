@@ -4,18 +4,18 @@ import {GlobalContext} from '../App'
 
 const Header = (props) => {
     //Deconstruct globalState and setGlobalState and pass into useContext
-    const {globalState, setGlobalState} = React.useContext(GlobalContext);
+    const { globalState, setGlobalState } = React.useContext(GlobalContext);
 
     //log out button with click event
     const logOut = (
-        <Link onClick={() => {
+        <Link to="/" onClick={() => {
             //remove token saved in local storage
             window.localStorage.removeItem("token");
             //setGlobalState token to null;
             setGlobalState({...globalState, token: null});
-            if (props.history !== undefined) {
-                props.history.push('/');
-            }
+            // if (props.history !== undefined) {
+            //     props.history.push('/');
+            // }
             // props.history.push('/');
         }}>Log Out</Link>
     )

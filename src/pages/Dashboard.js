@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import { GlobalContext } from '../App';
 
 const Dashboard = (props) => {
-    const {globalState, setGlobalState} = React.useContext(GlobalContext);
+    const { globalState } = React.useContext(GlobalContext);
     const { url, token } = globalState;
     
     const [userCostumes, setUserCostumes] = React.useState(null)
@@ -12,16 +12,29 @@ const Dashboard = (props) => {
         getCostumes();
     },[]
     )
-     //Get Costumes 
-  const getCostumes = async () => {
-    const response = await fetch(`${url}/costumes`, {
-        headers: {
-            Authorization: `bearer ${token}`
-        }
-    });
-    const data = await response.json();
-    setUserCostumes(data)
+    //Get Costumes 
+    const getCostumes = async () => {
+        const response = await fetch(`${url}/costumes`, {
+            headers: {
+                Authorization: `bearer ${token}`
+            }
+        });
+        const data = await response.json();
+        setUserCostumes(data)
     }
+
+    //Delete Costume
+    const deleteCostume = (costume) => {
+        fetch(`${url}/costumes/${costume._id}`, {
+            method: "DELETE",
+            headers: {
+                Authorization:  `bearer ${token}`
+            }
+        }).then(() => {
+            getCostumes();
+        });
+    }
+    
 
     const loaded = () => {
         return (
@@ -40,6 +53,7 @@ const Dashboard = (props) => {
                                 </button>
                                 <h3>{costume.name}</h3>
                                 <img src={costume.accessory.img} />
+                                <button onClick={() => deleteCostume(costume)}> Delete </button>
                            </div>
                        )
                    })}
