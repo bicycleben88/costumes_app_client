@@ -53,10 +53,22 @@ function App() {
         Authorization: `bearer ${globalState.token}`
       },
       body: JSON.stringify(costume)
-    })
+    });
   }
   
-
+  //Update Costume 
+  const updateCostume = (costume) => {
+    console.log(costume);
+    fetch(`${globalState.url}/costumes/${costume._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${globalState.token}`
+      },
+      body: JSON.stringify(costume) 
+    });
+  }
+  
   return (
     <GlobalContext.Provider value={{globalState, setGlobalState}}>
     <div className="App">
@@ -87,7 +99,8 @@ function App() {
           <Route exact path="/change" 
             render={(routerProps => 
             <Change {...routerProps} 
-              costume={foundCostume}  />)} 
+              costume={foundCostume}  
+              updateCostume={updateCostume} />)} 
           />
         </Switch>
       </main>
