@@ -58,7 +58,6 @@ function App() {
   
   //Update Costume 
   const updateCostume = (costume) => {
-    console.log(costume);
     fetch(`${globalState.url}/costumes/${costume._id}`, {
       method: "PUT",
       headers: {
@@ -77,10 +76,10 @@ function App() {
         <Switch>
           <Route exact path="/" 
             render={(routerProps => globalState.token ? 
-              <Dashboard {...routerProps} 
+            <Dashboard {...routerProps} 
               blankCostume={blankCostume}
               findCostume={findCostume} /> : 
-              <Home {...routerProps} />)} 
+            <Home {...routerProps} />)} 
           />
           <Route exact path="/signup" 
             render={(routerProps => 

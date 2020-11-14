@@ -4,8 +4,8 @@ import {GlobalContext} from '../App';
 
 const Login = (props) => {
     //Deconstruct globalState and setGlobalState and pass into useContext
-    const {globalState, setGlobalState} = React.useContext(GlobalContext);
-    const {url} = globalState;
+    const { globalState, setGlobalState } = React.useContext(GlobalContext);
+    const { url } = globalState;
 
     //create empty user object
     const blank = {
@@ -26,7 +26,7 @@ const Login = (props) => {
         //stop page from reloading
         event.preventDefault();
         //deconstruct username and password from state
-        const {username, password} = form
+        const { username, password } = form
         //make API call
         fetch(`${url}/auth/login`, {
             //enter method details
@@ -39,7 +39,6 @@ const Login = (props) => {
         //convert response to json
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             //store token from logged-in user in local storage
             window.localStorage.setItem("token", JSON.stringify(data));
             //add token from logged-in user to globalState

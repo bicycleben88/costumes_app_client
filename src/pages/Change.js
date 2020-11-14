@@ -2,16 +2,19 @@ import React from 'react';
 import {GlobalContext} from '../App'
 
 const Change = (props) => {
-  const {globalState, setGlobalState} = React.useContext(GlobalContext);
-  const { url, token } = globalState;
+  const { globalState } = React.useContext(GlobalContext);
+  const { url } = globalState;
   const { costume } = props
   const [userCostume, setUserCostume] = React.useState(null);
   const [items, setItems] = React.useState(null);
 
  //Set initial state 
-  React.useEffect(async () => {
-    await getItems();
-    await setUserCostume(costume);
+  React.useEffect(() => {
+    const loadState = async () => {
+      await getItems();
+      await setUserCostume(costume)
+    };
+    loadState();
   }, []);
 
   //Get Items
@@ -19,7 +22,7 @@ const Change = (props) => {
     const response = await fetch(`${url}/items`);
     const data = await response.json();
     await setItems(data);
-    }
+  }
 
      //handle adding costume to state
   const addToCostume = (item) => {
@@ -61,7 +64,7 @@ const Change = (props) => {
               <h4>Accessories</h4>
               {items.map((item) => {
                 return (
-                  <div>
+                  <div key={item._id}>
                     <img src={item.img}/>
                     <button onClick={() => addToCostume(item)}>Add to Costume</button>
                   </div>

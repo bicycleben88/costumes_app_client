@@ -4,8 +4,8 @@ import {GlobalContext} from '../App';
 
 const Signup = (props) => {
     //Deconstruct globalState and setGlobalState and pass into useContext
-    const {globalState, setGlobalState} = React.useContext(GlobalContext);
-    const {url} = globalState;
+    const { globalState, setGlobalState } = React.useContext(GlobalContext);
+    const { url } = globalState;
 
      //create empty user object
     const blank = {
