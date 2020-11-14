@@ -8,10 +8,6 @@ const Change = (props) => {
   const [userCostume, setUserCostume] = React.useState(null);
   const [items, setItems] = React.useState(null);
 
-  // React.useEffect(() => {
-  //   setUserCostume(costume);
-  // }, []);
-
  //Set initial state 
   React.useEffect(async () => {
     await getItems();
@@ -25,11 +21,23 @@ const Change = (props) => {
     await setItems(data);
     }
 
+     //handle adding costume to state
+  const addToCostume = (item) => {
+    setUserCostume({...userCostume, [item.type]: item});  
+  }   
+
+  const updateCostume = (costume) => {
+      props.updateCostume(costume);
+      props.history.push('/');
+  }
+  
+
   const loaded = () => {  
     return (
         <div className="change-container">
           <div className="change-costume">
             <h2>Change up your costume!</h2>
+            <button onClick={() => updateCostume(userCostume)}>Save Changes</button>
             <div>
               <h4>Top</h4>
             </div>
@@ -55,6 +63,7 @@ const Change = (props) => {
                 return (
                   <div>
                     <img src={item.img}/>
+                    <button onClick={() => addToCostume(item)}>Add to Costume</button>
                   </div>
                 )
               })}

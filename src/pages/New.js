@@ -38,7 +38,7 @@ const New = (props) => {
               <button 
                 onClick={() => addCostume(costume)}>
                 Add Costume
-            </button>
+              </button>
               <div className="costume-items">
                 <div>
                     <h2>Name</h2>
