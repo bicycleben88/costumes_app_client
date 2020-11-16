@@ -39,6 +39,21 @@ const New = (props) => {
                 onClick={() => addCostume(costume)}>
                 Add Costume
               </button>
+              <div className="new-costume">
+                <h2>Look At Your Costume! </h2>
+                <div>
+                  <h4>Top</h4>
+                </div>
+                <div>
+                  <h4>Bottom</h4>
+                </div>
+                <div>
+                  <h4>Accessory</h4>
+                  {costume.accessory ? 
+                    <img src={costume.accessory.img} className="accessories" /> : 
+                    null }
+                </div>
+              </div>
               <div className="costume-items">
                 <div>
                     <h2>Name</h2>
