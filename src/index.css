@@ -27,7 +27,9 @@ nav {
   display: flex;
   justify-content: space-between;
 }
-.accessories {
+.accessories,
+.tops,
+.bottoms {
   width: 150px;
 }
 

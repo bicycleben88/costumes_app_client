@@ -35,7 +35,6 @@ const Dashboard = (props) => {
         });
     }
     
-
     const loaded = () => {
         return (
            <>
@@ -52,6 +51,8 @@ const Dashboard = (props) => {
                                     Make Changes?
                                 </button>
                                 <h3>{costume.name}</h3>
+                                <img src={costume.top.img} />
+                                <img src={costume.bottom.img} />
                                 <img src={costume.accessory.img} />
                                 <button onClick={() => deleteCostume(costume)}> Delete </button>
                            </div>
