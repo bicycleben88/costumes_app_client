@@ -14,18 +14,18 @@ const New = (props) => {
   //add costume 
   const addCostume = (costume) => {
     props.addCostume(costume);
-    props.history.push('/')
+    props.history.push('/');
   }
   //handle input change
   const handleChange = (event) => {
-      setCostume({...costume, [event.target.name]: event.target.value})
+      setCostume({...costume, [event.target.name]: event.target.value});
   }
   //Get Items
   const getItems = async () => {
     const response = await fetch(`${url}/items`);
     const data = await response.json();
     await setItems(data);
-    }
+  }
 
   React.useEffect(() => {
     getItems();
@@ -43,9 +43,15 @@ const New = (props) => {
                 <h2>Look At Your Costume! </h2>
                 <div>
                   <h4>Top</h4>
+                  {costume.top ? 
+                    <img src={costume.top.img} className="tops" /> : 
+                    null }
                 </div>
                 <div>
                   <h4>Bottom</h4>
+                  {costume.bottom ? 
+                    <img src={costume.bottom.img} className="bottoms" /> : 
+                    null }
                 </div>
                 <div>
                   <h4>Accessory</h4>
@@ -65,8 +71,30 @@ const New = (props) => {
                         onChange={handleChange}
                     />
                 </div>
-                <h2>Tops</h2>
-                <h2>Bottoms</h2>
+                <div>
+                    <h2>Tops</h2>
+                    {items.map(item => {
+                        if(item.type === "top") {
+                            return ( 
+                                <div>
+                                    <img src={item.img} className="tops" key={item._id}/>
+                                    <button onClick={() => addToCostume(item)}>Add to Costume</button>
+                                </div>
+                            )}
+                    })}
+                </div>
+                <div>
+                    <h2>Bottoms</h2>
+                    {items.map(item => {
+                        if(item.type === "bottom") {
+                            return ( 
+                                <div>
+                                    <img src={item.img} className="bottoms" key={item._id}/>
+                                    <button onClick={() => addToCostume(item)}>Add to Costume</button>
+                                </div>
+                            )}
+                    })}
+                </div>
                 <div>
                     <h2>Accessories</h2>
                     {items.map(item => {
