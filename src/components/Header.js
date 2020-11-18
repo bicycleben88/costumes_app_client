@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {GlobalContext} from '../App'
 
 const Header = (props) => {
-    //Deconstruct globalState and setGlobalState and pass into useContext
+    //Destructure globalState and setGlobalState and pass into useContext
     const { globalState, setGlobalState } = React.useContext(GlobalContext);
 
     //log out button with click event
@@ -13,15 +13,12 @@ const Header = (props) => {
             window.localStorage.removeItem("token");
             //setGlobalState token to null;
             setGlobalState({...globalState, token: null});
-            // if (props.history !== undefined) {
-            //     props.history.push('/');
-            // }
-            // props.history.push('/');
         }}>Log Out</Link>
     )
 
     return (
         <>
+            <h1 className="nav-header">Costume Collector</h1>
             <nav>
                 <Link to="/signup">Sign Up</Link>
                 <Link to="/login">Log In</Link>
