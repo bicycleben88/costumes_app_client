@@ -38,23 +38,28 @@ const Dashboard = (props) => {
     const loaded = () => {
         return (
            <>
-              <h1>Welcome to your Dashboard</h1>
-              <Link to="/new"><h2>Make a new Costume</h2></Link>
-              <div>
+              <h1 className="dashboard-header">Welcome to your Dashboard</h1>
+              <Link to="/new"><h2 className="dashboard-h2">Make a new Costume</h2></Link>
+              <div className="dashboard-container">
                    {userCostumes.map((costume) => {
                        return(
                            <div key={costume._id} className="dashboard-costume">
                                 <button 
-                                onClick={() => {
+                                    onClick={() => {
                                     props.findCostume(costume)
-                                    props.history.push("/change")}}>
-                                    Make Changes?
+                                    props.history.push("/change")}}
+                                    className ="dashboard-button">
+                                    Make Changes
                                 </button>
                                 <h3>{costume.name}</h3>
+                                <img src={costume.accessory.img} />
                                 <img src={costume.top.img} />
                                 <img src={costume.bottom.img} />
-                                <img src={costume.accessory.img} />
-                                <button onClick={() => deleteCostume(costume)}> Delete </button>
+                                <button 
+                                    onClick={() => deleteCostume(costume)} 
+                                    className ="dashboard-button"> 
+                                    Delete 
+                                </button>
                            </div>
                        )
                    })}

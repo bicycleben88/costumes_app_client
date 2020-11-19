@@ -10,13 +10,15 @@ body {
 .nav-header {
   color: limegreen;
   font-family: 'Xanh Mono', monospace;
-  padding-left: 10px
+  padding-left: 10px;
+  font-size: 4em;
 }
 
 nav {
   display: flex;
   justify-content: space-around;
   border: 2px solid darkorange;
+  border-radius: 3px;
   padding: 3px;
   background-color: rgba(255, 165, 0, 0.6);
   height: 50px;
@@ -37,7 +39,10 @@ nav a:hover {
 
 /* Home Page */
 
-.home-header {
+.home-header, 
+.signup-form, 
+.login-form,
+.dashboard-header {
   color: limegreen;
   text-align: center;
   width: 60%;
@@ -66,11 +71,41 @@ nav a:hover {
 .dashboard-costume {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  max-height: 750px;
+  padding: 5px;
+  border: 1px solid darkorange;
+  border-radius: 3px;
+  background-color: rgba(255, 165, 0, 0.6);
+  margin: 0 3px 0 3px;
+  min-width: 200px;
+  align-items: center;
 }
 .dashboard-costume img {
-  width: 150px
+  width: 150px;
+  max-height: 200px;
+  border: 1px solid darkorange;
+  border-radius: 3px;
+  margin-bottom: 2px;;
+}
+.dashboard-container {
+  display: flex;
+  padding: 10px;
+}
+.dashboard-button {
+  border: none;
+  background-color: transparent;
+}
+.dashboard-h2{
+  color: limegreen;
+  font-family: 'Xanh Mono', monospace;
+  display: inline-block;
+  padding-left: 10px;
 }
 
+.dashboard-h2 a {
+  text-decoration: none;
+}
 /* Change Page */
 .change-container {
   display: flex;
@@ -80,5 +115,20 @@ nav a:hover {
 .change-costume img,
 .change-all-costumes img {
   width: 150px
+}
+
+.submit-button {
+  background-color: rgba(255, 165, 0, 0.6);
+  border: 1px solid darkorange;
+  padding: 2px;
+}
+
+.submit-button:hover, 
+.dashboard-button:hover {
+  cursor: pointer;
+}
+
+.dashboard-button:hover {
+  font-size: 1.25em;
 }
 

@@ -26,7 +26,7 @@ const Signup = (props) => {
         //stop page from reloading
         event.preventDefault();
          //deconstruct username and password from state
-        const {username, password} = form
+        const { username, password } = form
         //make API call
         fetch(`${url}/auth/signup`, {
             //enter method details
@@ -52,10 +52,10 @@ const Signup = (props) => {
     
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="signup-form">
                 <input type="text" name="username" value={form.username} onChange={handleChange} />
                 <input type="password" name="password" value={form.password} onChange={handleChange} />
-                <input type="submit" value="Sign Up" />
+                <input type="submit" value="Sign Up" className="submit-button"/>
             </form>
         </>
     )
