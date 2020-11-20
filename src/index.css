@@ -58,7 +58,28 @@ nav a:hover {
 
 .costume-items {
   display: flex;
+  justify-content: space-around;
+}
+
+.new-items {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid darkorange;
+  border-radius: 3px;
+  background-color: rgba(255, 165, 0, 0.6);
+  margin: 0 3px 0 3px;
+  min-width: 200px;
+  align-items: center;
   justify-content: space-between;
+}
+.costume-items :nth-child(1) {
+  justify-content: start;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3px;
 }
 .accessories,
 .tops,
@@ -81,7 +102,8 @@ nav a:hover {
   min-width: 200px;
   align-items: center;
 }
-.dashboard-costume img {
+.dashboard-costume img,
+.costume-items img {
   width: 150px;
   max-height: 200px;
   border: 1px solid darkorange;
@@ -105,6 +127,10 @@ nav a:hover {
 
 .dashboard-h2 a {
   text-decoration: none;
+}
+
+.dashboard-h2:hover{
+  cursor: pointer;
 }
 /* Change Page */
 .change-container {
