@@ -34,35 +34,15 @@ const New = (props) => {
     const loaded = () => {
         return (
            <>
-              <h1>Create a new Costume</h1>
-              <button 
-                onClick={() => addCostume(costume)}>
+              <h1 className="dashboard-header">Create a new Costume</h1>
+              <h2 
+                onClick={() => addCostume(costume)}
+                className="dashboard-h2">
                 Add Costume
-              </button>
-              <div className="new-costume">
-                <h2>Look At Your Costume! </h2>
-                <div>
-                  <h4>Top</h4>
-                  {costume.top ? 
-                    <img src={costume.top.img} className="tops" /> : 
-                    null }
-                </div>
-                <div>
-                  <h4>Bottom</h4>
-                  {costume.bottom ? 
-                    <img src={costume.bottom.img} className="bottoms" /> : 
-                    null }
-                </div>
-                <div>
-                  <h4>Accessory</h4>
-                  {costume.accessory ? 
-                    <img src={costume.accessory.img} className="accessories" /> : 
-                    null }
-                </div>
-              </div>
+              </h2>
               <div className="costume-items">
-                <div>
-                    <h2>Name</h2>
+                <div className="new-items">
+                  <h2>Your Costume! </h2>
                     <input 
                         name="name"
                         type="text" 
@@ -70,39 +50,69 @@ const New = (props) => {
                         placeholder="Costume Name"
                         onChange={handleChange}
                     />
+                  <div>
+                    <h4>Accessory</h4>
+                    {costume.accessory ? 
+                      <img src={costume.accessory.img} className="accessories" /> : 
+                      null }
+                  </div>
+                  <div>
+                    <h4>Top</h4>
+                    {costume.top ? 
+                      <img src={costume.top.img} className="tops" /> : 
+                      null }
+                  </div>
+                  <div>
+                    <h4>Bottom</h4>
+                    {costume.bottom ? 
+                      <img src={costume.bottom.img} className="bottoms" /> : 
+                      null }
+                  </div>
                 </div>
-                <div>
+                <div className="new-items">
                     <h2>Tops</h2>
                     {items.map(item => {
                         if(item.type === "top") {
                             return ( 
-                                <div>
+                                <div className="item">
                                     <img src={item.img} className="tops" key={item._id}/>
-                                    <button onClick={() => addToCostume(item)}>Add to Costume</button>
+                                    <button 
+                                      onClick={() => addToCostume(item)}
+                                      className="dashboard-button">
+                                      Add to Costume
+                                    </button>
                                 </div>
                             )}
                     })}
                 </div>
-                <div>
+                <div className="new-items">
                     <h2>Bottoms</h2>
                     {items.map(item => {
                         if(item.type === "bottom") {
                             return ( 
-                                <div>
+                                <div className="item">
                                     <img src={item.img} className="bottoms" key={item._id}/>
-                                    <button onClick={() => addToCostume(item)}>Add to Costume</button>
+                                    <button 
+                                      onClick={() => addToCostume(item)}
+                                      className="dashboard-button">
+                                      Add to Costume
+                                    </button>
                                 </div>
                             )}
                     })}
                 </div>
-                <div>
+                <div className="new-items">
                     <h2>Accessories</h2>
                     {items.map(item => {
                         if(item.type === "accessory") {
                             return ( 
-                                <div>
+                                <div className="item">
                                     <img src={item.img} className="accessories" key={item._id}/>
-                                    <button onClick={() => addToCostume(item)}>Add to Costume</button>
+                                    <button 
+                                      onClick={() => addToCostume(item)}
+                                      className="dashboard-button">
+                                      Add to Costume
+                                    </button>
                                 </div>
                             )}
                     })}
