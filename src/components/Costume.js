@@ -3,7 +3,7 @@ import React from 'react';
 const Costume = (props) => {
     const { costume } = props
     return (
-        <div>
+        <div className="costume">
             <h4>Accessory</h4>
             {costume.accessory ? <img src={costume.accessory.img} /> : null}
             <h4>Top</h4>

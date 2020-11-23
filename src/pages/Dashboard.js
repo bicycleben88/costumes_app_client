@@ -44,7 +44,7 @@ const Dashboard = (props) => {
               <div className="dashboard-container">
                    {userCostumes.map((costume) => {
                        return(
-                           <div key={costume._id} className="dashboard-costume">
+                           <div key={costume._id} className="costume-container">
                                 <button 
                                     onClick={() => {
                                     props.findCostume(costume)
