@@ -1,5 +1,7 @@
 import React from 'react';
 import { GlobalContext } from '../App';
+import Costume from '../components/Costume'
+import Item from '../components/Item'
 
 const New = (props) => {
   const { globalState } = React.useContext(GlobalContext);
@@ -26,7 +28,6 @@ const New = (props) => {
     const data = await response.json();
     await setItems(data);
   }
-
   React.useEffect(() => {
     getItems();
   }, []);
@@ -50,71 +51,30 @@ const New = (props) => {
                         placeholder="Costume Name"
                         onChange={handleChange}
                     />
-                  <div>
-                    <h4>Accessory</h4>
-                    {costume.accessory ? 
-                      <img src={costume.accessory.img} className="accessories" /> : 
-                      null }
-                  </div>
-                  <div>
-                    <h4>Top</h4>
-                    {costume.top ? 
-                      <img src={costume.top.img} className="tops" /> : 
-                      null }
-                  </div>
-                  <div>
-                    <h4>Bottom</h4>
-                    {costume.bottom ? 
-                      <img src={costume.bottom.img} className="bottoms" /> : 
-                      null }
-                  </div>
+                  <Costume costume={costume} />
                 </div>
                 <div className="new-items">
                     <h2>Tops</h2>
                     {items.map(item => {
                         if(item.type === "top") {
-                            return ( 
-                                <div className="item">
-                                    <img src={item.img} className="tops" key={item._id}/>
-                                    <button 
-                                      onClick={() => addToCostume(item)}
-                                      className="dashboard-button">
-                                      Add to Costume
-                                    </button>
-                                </div>
-                            )}
+                            return <Item item={item} addToCostume={addToCostume} />
+                        }
                     })}
                 </div>
                 <div className="new-items">
                     <h2>Bottoms</h2>
                     {items.map(item => {
                         if(item.type === "bottom") {
-                            return ( 
-                                <div className="item">
-                                    <img src={item.img} className="bottoms" key={item._id}/>
-                                    <button 
-                                      onClick={() => addToCostume(item)}
-                                      className="dashboard-button">
-                                      Add to Costume
-                                    </button>
-                                </div>
-                            )}
+                            return <Item item={item} addToCostume={addToCostume} />
+                        }
                     })}
                 </div>
                 <div className="new-items">
                     <h2>Accessories</h2>
                     {items.map(item => {
                         if(item.type === "accessory") {
-                            return ( 
-                                <div className="item">
-                                    <img src={item.img} className="accessories" key={item._id}/>
-                                    <button 
-                                      onClick={() => addToCostume(item)}
-                                      className="dashboard-button">
-                                      Add to Costume
-                                    </button>
-                                </div>
-                            )}
+                            return <Item item={item} addToCostume={addToCostume} />
+                        }
                     })}
                 </div>
               </div>
