@@ -9,9 +9,7 @@ const Header = (props) => {
     //log out button with click event
     const logOut = (
         <Link to="/" onClick={() => {
-            //remove token saved in local storage
             window.localStorage.removeItem("token");
-            //setGlobalState token to null;
             setGlobalState({...globalState, token: null});
         }}>Log Out</Link>
     )
@@ -22,7 +20,6 @@ const Header = (props) => {
             <nav>
                 <Link to="/signup">Sign Up</Link>
                 <Link to="/login">Log In</Link>
-                {/* if there's token in local storage then render log out button */}
                 {globalState.token ? logOut : null}
             </nav>
         </>

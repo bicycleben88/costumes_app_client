@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { GlobalContext } from '../App';
+import Costume from '../components/Costume'
 
 const Dashboard = (props) => {
     const { globalState } = React.useContext(GlobalContext);
@@ -52,9 +53,7 @@ const Dashboard = (props) => {
                                     Make Changes
                                 </button>
                                 <h3>{costume.name}</h3>
-                                <img src={costume.accessory.img} />
-                                <img src={costume.top.img} />
-                                <img src={costume.bottom.img} />
+                                <Costume costume={costume} />
                                 <button 
                                     onClick={() => deleteCostume(costume)} 
                                     className ="dashboard-button"> 
