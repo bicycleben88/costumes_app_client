@@ -43,8 +43,10 @@ const Change = (props) => {
           <h2>Change up your costume!</h2>
           <button onClick={() => updateCostume(userCostume)}>Save Changes</button>
           <div className="change-costume">
-            <Costume 
-            costume={userCostume} />
+            <div className="costume-container">
+              <h2>Your Costume! </h2>
+              <Costume costume={userCostume} />
+            </div>
             <div className="new-items">
                 <h2>Tops</h2>
                 {items.map(item => {

@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap');
 
+:root {
+  --background-orange:  rgba(255, 165, 0, 0.6);
+}
+
 body {
   margin: 0;
   background-color: black;
@@ -89,30 +93,41 @@ nav a:hover {
 
 /* dashboard */
 
-.dashboard-costume {
+.costume {
+  text-align: center;
+}
+.costume h4 {
+  margin: 1px;
+}
+.costume-container {
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
+  justify-content: start;
+  flex-basis: 200px;
+  background-color: var(--background-orange);
   max-height: 750px;
   padding: 5px;
   border: 1px solid darkorange;
-  border-radius: 3px;
-  background-color: rgba(255, 165, 0, 0.6);
   margin: 0 3px 0 3px;
-  min-width: 200px;
-  align-items: center;
+  border-radius: 3px;
 }
-.dashboard-costume img,
-.costume-items img {
+.costume-container img {
   width: 150px;
   max-height: 200px;
   border: 1px solid darkorange;
   border-radius: 3px;
-  margin-bottom: 2px;;
+  margin-bottom: 2px;
 }
+.dashboard-container h3 {
+  text-align: center;
+}
+
 .dashboard-container {
   display: flex;
   padding: 10px;
+}
+.dashboard-container :nth-child(4) {
+  justify-self: stretch;
 }
 .dashboard-button {
   border: none;

@@ -42,7 +42,7 @@ const New = (props) => {
                 Add Costume
               </h2>
               <div className="costume-items">
-                <div className="new-items">
+                <div className="costume-container">
                   <h2>Your Costume! </h2>
                     <input 
                         name="name"
