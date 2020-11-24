@@ -6,7 +6,12 @@
 
 body {
   margin: 0;
+  background-color: rgb(245, 245, 245);
+}
+
+main {
   background-color: black;
+  box-shadow: 0 0 10px 35px;
 }
 
 .costume {
@@ -42,8 +47,13 @@ body {
 .nav-header {
   color: limegreen;
   font-family: 'Xanh Mono', monospace;
-  padding-left: 10px;
+  padding: 0 10px 0 10px;
   font-size: 4em;
+  background: black;
+  box-shadow: 0 0 10px 10px black;
+  display: inline-block;
+  border-radius: 5px;
+  margin-left: 15px;
 }
 nav {
   display: flex;
@@ -78,6 +88,10 @@ nav a:hover {
   border: 1px solid limegreen;
   border-radius: 7px;
   box-shadow: 1px 1px 25px limegreen ;
+}
+.submit-button{
+  border: 1.5px solid darkorange;
+  background-color: var(--background-orange);
 }
 
 /* New Page */
