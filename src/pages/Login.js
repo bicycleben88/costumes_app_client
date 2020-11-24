@@ -53,7 +53,7 @@ const Login = (props) => {
     
     return (
         <>
-            <form onSubmit={handleSubmit} className="login-form">
+            <form onSubmit={handleSubmit} className="banner-header">
                 <input type="text" name="username" value={form.username} onChange={handleChange} />
                 <input type="password" name="password" value={form.password} onChange={handleChange} />
                 <input type="submit" value="Log In" className="submit-button" />

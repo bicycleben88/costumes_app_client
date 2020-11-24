@@ -39,7 +39,7 @@ const Dashboard = (props) => {
     const loaded = () => {
         return (
            <>
-              <h1 className="dashboard-header">Welcome to your Dashboard</h1>
+              <h1 className="banner-header">Welcome to your Dashboard</h1>
               <Link to="/new"><h2 className="dashboard-h2">Make a new Costume</h2></Link>
               <div className="dashboard-container">
                    {userCostumes.map((costume) => {
