@@ -16,7 +16,7 @@ const Header = (props) => {
 
     return (
         <>
-            <h1 className="nav-header">Costume Collector</h1>
+            <Link to="/" style={{textDecoration: "none"}}><h1 className="nav-header">Costume Collector</h1></Link>
             <nav>
                 <Link to="/signup">Sign Up</Link>
                 <Link to="/login">Log In</Link>

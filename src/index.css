@@ -9,92 +9,9 @@ body {
   background-color: black;
 }
 
-/* Nav Style ----------- */
-
-.nav-header {
-  color: limegreen;
-  font-family: 'Xanh Mono', monospace;
-  padding-left: 10px;
-  font-size: 4em;
-}
-
-nav {
-  display: flex;
-  justify-content: space-around;
-  border: 2px solid darkorange;
-  border-radius: 3px;
-  padding: 3px;
-  background-color: rgba(255, 165, 0, 0.6);
-  height: 50px;
-  width: 95%;
-  margin: 0 auto;
-}
-
-nav a {
-  color: black;
-  text-decoration: none;
-  vertical-align: middle;
-  line-height: 45px;
-}
-
-nav a:hover {
-  font-size: 1.5em;
-}
-
-/* Home Page */
-
-.home-header, 
-.signup-form, 
-.login-form,
-.dashboard-header {
-  color: limegreen;
-  text-align: center;
-  width: 60%;
-  margin: 50px auto;
-  background-color: rgba(50, 205, 50, 0.3);
-  padding: 5px;
-  border: 1px solid limegreen;
-  border-radius: 7px;
-  box-shadow: 1px 1px 25px limegreen ;
-}
-
-/* New Page */
-
-.costume-items {
-  display: flex;
-  justify-content: space-around;
-}
-
-.new-items {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid darkorange;
-  border-radius: 3px;
-  background-color: rgba(255, 165, 0, 0.6);
-  margin: 0 3px 0 3px;
-  min-width: 200px;
-  align-items: center;
-  justify-content: space-between;
-}
-.costume-items :nth-child(1) {
-  justify-content: start;
-}
-.item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3px;
-}
-.accessories,
-.tops,
-.bottoms {
-  width: 150px;
-}
-
-/* dashboard */
-
 .costume {
   text-align: center;
+  flex: 2;
 }
 .costume h4 {
   margin: 1px;
@@ -118,10 +35,97 @@ nav a:hover {
   border-radius: 3px;
   margin-bottom: 2px;
 }
+
+
+/* Nav Style ----------- */
+
+.nav-header {
+  color: limegreen;
+  font-family: 'Xanh Mono', monospace;
+  padding-left: 10px;
+  font-size: 4em;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  border: 2px solid darkorange;
+  border-radius: 3px;
+  padding: 3px;
+  background-color: var(--background-orange);
+  height: 50px;
+  width: 95%;
+  margin: 0 auto;
+}
+nav a {
+  color: black;
+  text-decoration: none;
+  vertical-align: middle;
+  line-height: 45px;
+}
+nav a:hover {
+  font-size: 1.5em;
+}
+
+/* Home Page */
+
+.banner-header {
+  color: limegreen;
+  text-align: center;
+  width: 60%;
+  margin: 50px auto;
+  background-color: rgba(50, 205, 50, 0.3);
+  padding: 5px;
+  border: 1px solid limegreen;
+  border-radius: 7px;
+  box-shadow: 1px 1px 25px limegreen ;
+}
+
+/* New Page */
+
+.new-container,
+.change-container {
+  display: flex;
+  justify-content: space-around;
+}
+.items-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid darkorange;
+  border-radius: 3px;
+  background-color: var(--background-orange);
+  margin: 0 3px 0 3px;
+  min-width: 200px;
+  align-items: center;
+}
+.new-container :nth-child(1) {
+  justify-content: start;
+}
+.item {
+  text-align: center;
+}
+.item img {
+  width: 150px;
+  border: 1px solid darkorange;
+  border-radius: 3px;
+  margin-bottom: 2px;
+}
+.item > button {
+  display: block;
+  margin: 1px auto;
+  border: none;
+  background-color: transparent;
+}
+.item > button:hover {
+  cursor: pointer;
+  font-size: 1.25em;
+}
+
+/* Dashboard */
+
 .dashboard-container h3 {
   text-align: center;
 }
-
 .dashboard-container {
   display: flex;
   padding: 10px;
@@ -139,37 +143,25 @@ nav a:hover {
   display: inline-block;
   padding-left: 10px;
 }
-
 .dashboard-h2 a {
   text-decoration: none;
 }
-
 .dashboard-h2:hover{
   cursor: pointer;
 }
+.dashboard-button:hover {
+  cursor: pointer;
+  font-size: 1.25em;
+}
+
 /* Change Page */
+
 .change-container {
   display: flex;
   justify-content: space-around; 
   max-width: 900px;
 }
-.change-costume img,
-.change-all-costumes img {
-  width: 150px
-}
 
-.submit-button {
-  background-color: rgba(255, 165, 0, 0.6);
-  border: 1px solid darkorange;
-  padding: 2px;
-}
 
-.submit-button:hover, 
-.dashboard-button:hover {
-  cursor: pointer;
-}
 
-.dashboard-button:hover {
-  font-size: 1.25em;
-}
 

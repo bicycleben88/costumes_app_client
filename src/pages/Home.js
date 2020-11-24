@@ -4,7 +4,7 @@ const Home = (props) => {
 
     return (
         <>
-           <h3 className="home-header">Sign Up or Log In to Create Creepy Costumes!</h3>
+           <h3 className="banner-header">Sign Up or Log In to Create Creepy Costumes!</h3>
         </>
     )
 }

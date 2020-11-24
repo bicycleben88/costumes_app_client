@@ -52,7 +52,7 @@ const Signup = (props) => {
     
     return (
         <>
-            <form onSubmit={handleSubmit} className="signup-form">
+            <form onSubmit={handleSubmit} className="banner-header">
                 <input type="text" name="username" value={form.username} onChange={handleChange} />
                 <input type="password" name="password" value={form.password} onChange={handleChange} />
                 <input type="submit" value="Sign Up" className="submit-button"/>

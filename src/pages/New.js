@@ -35,13 +35,13 @@ const New = (props) => {
     const loaded = () => {
         return (
            <>
-              <h1 className="dashboard-header">Create a new Costume</h1>
+              <h1 className="banner-header">Create a new Costume</h1>
               <h2 
                 onClick={() => addCostume(costume)}
                 className="dashboard-h2">
                 Add Costume
               </h2>
-              <div className="costume-items">
+              <div className="new-container">
                 <div className="costume-container">
                   <h2>Your Costume! </h2>
                     <input 
@@ -53,7 +53,7 @@ const New = (props) => {
                     />
                   <Costume costume={costume} />
                 </div>
-                <div className="new-items">
+                <div className="items-container">
                     <h2>Tops</h2>
                     {items.map(item => {
                         if(item.type === "top") {
@@ -61,7 +61,7 @@ const New = (props) => {
                         }
                     })}
                 </div>
-                <div className="new-items">
+                <div className="items-container">
                     <h2>Bottoms</h2>
                     {items.map(item => {
                         if(item.type === "bottom") {
@@ -69,7 +69,7 @@ const New = (props) => {
                         }
                     })}
                 </div>
-                <div className="new-items">
+                <div className="items-container">
                     <h2>Accessories</h2>
                     {items.map(item => {
                         if(item.type === "accessory") {
