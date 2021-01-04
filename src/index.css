@@ -12,18 +12,12 @@ body {
 }
 
 main {
-  box-shadow: 0 0 10px 35px;
   display: flex;
   min-height: 100vh;
   background-image: url("/addams.jpg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-aside {
-  width: 33vh;
-  border-right: 1px solid var(--background-orange);
 }
 
 .costume {
@@ -55,6 +49,13 @@ aside {
 
 /* Nav Style ----------- */
 
+aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 33vh;
+  border-right: 1px solid var(--background-orange);
+}
 header h1 {
   color: limegreen;
   font-family: "Xanh Mono", monospace;
@@ -62,43 +63,37 @@ header h1 {
   width: 100%;
   text-align: center;
 }
-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 5px 0;
-}
-nav a {
+aside a {
   color: darkorange;
   text-decoration: none;
-  vertical-align: middle;
   line-height: 45px;
+  display: block;
+  text-align: center;
 }
-nav a:hover {
+aside a:hover {
   font-size: 1.5em;
 }
 
-/* Home Page */
+/* Home / SignUp / LogIn Page  */
 
-.banner-header {
+.submit-button {
+  border: 1.5px solid darkorange;
+  background-color: var(--background-orange);
+}
+.home {
+  height: auto;
+  width: 60%;
+  margin: 0 auto;
+}
+.home h3 {
   color: limegreen;
   text-align: center;
-  width: 60%;
-  margin: 50px auto;
-  background-color: rgba(50, 205, 50, 0.3);
+  background-color: rgba(50, 205, 50, 0.5);
   padding: 5px;
   border: 1px solid limegreen;
   border-radius: 7px;
   box-shadow: 1px 1px 25px limegreen;
 }
-.submit-button {
-  border: 1.5px solid darkorange;
-  background-color: var(--background-orange);
-}
-article .home {
-  height: auto;
-}
-
 .form {
   height: auto;
   margin: 0 auto;
