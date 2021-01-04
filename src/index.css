@@ -39,7 +39,8 @@ main {
   margin: 0 3px 0 3px;
   border-radius: 3px;
 }
-.costume-container img {
+.costume-container img,
+.costume img {
   width: 150px;
   max-height: 200px;
   border: 1px solid darkorange;
@@ -146,6 +147,15 @@ aside a:hover {
 .item > button:hover {
   cursor: pointer;
   font-size: 1.25em;
+}
+
+/* Carousel */
+.carousel {
+  display: flex;
+  align-items: center;
+}
+.slide-arrow {
+  background-color: white;
 }
 
 /* Dashboard */
