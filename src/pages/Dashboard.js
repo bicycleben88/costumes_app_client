@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../App";
 import Costume from "../components/Costume";
+import Arrow from "../components/Arrow";
 
 const Dashboard = (props) => {
   const { globalState } = React.useContext(GlobalContext);
@@ -9,9 +10,12 @@ const Dashboard = (props) => {
 
   const [userCostumes, setUserCostumes] = React.useState(null);
 
+  const [costumeIndex, setCostumeIndex] = React.useState(null);
+
   React.useEffect(() => {
     getCostumes();
   }, []);
+
   //Get Costumes
   const getCostumes = async () => {
     const response = await fetch(`${url}/costumes`, {
@@ -20,6 +24,7 @@ const Dashboard = (props) => {
       },
     });
     const data = await response.json();
+    setCostumeIndex(data.length - 1);
     setUserCostumes(data);
   };
 
@@ -35,37 +40,39 @@ const Dashboard = (props) => {
     });
   };
 
+  //Carousel functions
+  const previousSlide = () => {
+    const lastIndex = userCostumes.length - 1;
+    const shouldResetIndex = costumeIndex === 0;
+    const index = shouldResetIndex ? lastIndex : costumeIndex - 1;
+    setCostumeIndex(index);
+  };
+  const nextSlide = () => {
+    const lastIndex = userCostumes.length - 1;
+    const shouldResetIndex = costumeIndex === lastIndex;
+    const index = shouldResetIndex ? 0 : costumeIndex + 1;
+    setCostumeIndex(index);
+  };
+
   const loaded = () => {
     return (
       <section>
         <Link to="/new">
           <h2 className="dashboard-h2">Make a new Costume</h2>
         </Link>
-        <div className="dashboard-container">
-          {userCostumes.map((costume) => {
-            return (
-              <div key={costume._id} className="costume-container">
-                <button
-                  onClick={() => {
-                    props.findCostume(costume);
-                    props.history.push("/change");
-                  }}
-                  className="dashboard-button"
-                >
-                  Make Changes
-                </button>
-                <h3>{costume.name}</h3>
-                <Costume costume={costume} />
-                <button
-                  onClick={() => deleteCostume(costume)}
-                  className="dashboard-button"
-                >
-                  Delete
-                </button>
-              </div>
-            );
-          })}
-        </div>
+        <article className="carousel">
+          <Arrow
+            direction="left"
+            clickFunction={previousSlide}
+            image="/lnr-arrow-left.svg"
+          />
+          <Costume costume={userCostumes[costumeIndex]} />
+          <Arrow
+            direction="right"
+            clickFunction={nextSlide}
+            image="/lnr-arrow-right.svg"
+          />
+        </article>
       </section>
     );
   };

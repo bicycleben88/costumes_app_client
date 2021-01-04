@@ -68,18 +68,6 @@ function App() {
     });
   };
 
-  const logOut = (
-    <Link
-      to="/"
-      onClick={() => {
-        window.localStorage.removeItem("token");
-        setGlobalState({ ...globalState, token: null });
-      }}
-    >
-      Log Out
-    </Link>
-  );
-
   return (
     <GlobalContext.Provider value={{ globalState, setGlobalState }}>
       <div className="App">
