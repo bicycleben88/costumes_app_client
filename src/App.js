@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router";
 import { Link } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
-import Header from "./components/Header";
+import Aside from "./components/Aside";
 import Signup from "./pages/Signup";
 import LogIn from "./pages/Login";
 import Home from "./pages/Home";
@@ -83,16 +83,13 @@ function App() {
   return (
     <GlobalContext.Provider value={{ globalState, setGlobalState }}>
       <div className="App">
-        <Header />
+        <header>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <h1 className="nav-header">Costume Collector</h1>
+          </Link>
+        </header>
         <main>
-          <aside>
-            {" "}
-            <nav>
-              <Link to="/signup">Sign Up</Link>
-              <Link to="/login">Log In</Link>
-              {globalState.token ? logOut : null}
-            </nav>
-          </aside>
+          <Aside />
           <Switch>
             <Route
               exact

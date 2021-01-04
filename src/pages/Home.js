@@ -3,9 +3,7 @@ import React from "react";
 const Home = (props) => {
   return (
     <article className="home">
-      <h3 className="banner-header">
-        Sign Up or Log In to Create Creepy Costumes!
-      </h3>
+      <h3>Sign Up or Log In to Create Creepy Costumes!</h3>
     </article>
   );
 };

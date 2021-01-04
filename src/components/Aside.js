@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../App";
 
-const Header = (props) => {
+const Aside = (props) => {
   //Destructure globalState and setGlobalState and pass into useContext
   const { globalState, setGlobalState } = React.useContext(GlobalContext);
 
@@ -20,17 +20,32 @@ const Header = (props) => {
   );
 
   return (
-    <header>
-      <Link to="/" style={{ textDecoration: "none" }}>
-        <h1 className="nav-header">Costume Collector</h1>
-      </Link>
-      {/* <nav>
+    <aside>
+      <nav>
         <Link to="/signup">Sign Up</Link>
         <Link to="/login">Log In</Link>
         {globalState.token ? logOut : null}
-      </nav> */}
-    </header>
+        <Link to="/">Costumes</Link>
+      </nav>
+      <div className="links">
+        <a
+          href="https://www.linkedin.com/in/benjamin-alt-higginbotham/"
+          target="#"
+        >
+          /in
+        </a>
+        <a
+          href="https://github.com/bicycleben88/costumes_app_client"
+          target="#"
+        >
+          Git
+        </a>
+        <a href="https://my-portfolio-swart-rho.vercel.app/" target="#">
+          Folio
+        </a>
+      </div>
+    </aside>
   );
 };
 
-export default Header;
+export default Aside;
