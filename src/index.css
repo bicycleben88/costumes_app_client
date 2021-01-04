@@ -1,17 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap");
+* {
+  box-sizing: border-box;
+}
 :root {
-  --background-orange:  rgba(255, 165, 0, 0.6);
+  --background-orange: rgba(255, 165, 0, 0.6);
 }
 
 body {
   margin: 0;
-  background-color: rgb(245, 245, 245);
+  background-color: black;
 }
 
 main {
-  background-color: black;
   box-shadow: 0 0 10px 35px;
+  display: flex;
+  min-height: 100vh;
+  background-image: url("/addams.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+aside {
+  width: 33vh;
+  border-right: 1px solid var(--background-orange);
 }
 
 .costume {
@@ -41,33 +53,23 @@ main {
   margin-bottom: 2px;
 }
 
-
 /* Nav Style ----------- */
 
-.nav-header {
+header h1 {
   color: limegreen;
-  font-family: 'Xanh Mono', monospace;
-  padding: 0 10px 0 10px;
-  font-size: 4em;
-  background: black;
-  box-shadow: 0 0 10px 10px black;
-  display: inline-block;
-  border-radius: 5px;
-  margin-left: 15px;
+  font-family: "Xanh Mono", monospace;
+  font-size: 6em;
+  width: 100%;
+  text-align: center;
 }
 nav {
   display: flex;
-  justify-content: space-around;
-  border: 2px solid darkorange;
-  border-radius: 3px;
-  padding: 3px;
-  background-color: var(--background-orange);
-  height: 50px;
-  width: 95%;
-  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px 0;
 }
 nav a {
-  color: black;
+  color: darkorange;
   text-decoration: none;
   vertical-align: middle;
   line-height: 45px;
@@ -87,11 +89,27 @@ nav a:hover {
   padding: 5px;
   border: 1px solid limegreen;
   border-radius: 7px;
-  box-shadow: 1px 1px 25px limegreen ;
+  box-shadow: 1px 1px 25px limegreen;
 }
-.submit-button{
+.submit-button {
   border: 1.5px solid darkorange;
   background-color: var(--background-orange);
+}
+article .home {
+  height: auto;
+}
+
+.form {
+  height: auto;
+  margin: 0 auto;
+}
+.form form {
+  color: limegreen;
+  background-color: rgba(50, 205, 50, 0.3);
+  padding: 5px;
+  border: 1px solid limegreen;
+  border-radius: 7px;
+  box-shadow: 1px 1px 25px limegreen;
 }
 
 /* New Page */
@@ -151,16 +169,16 @@ nav a:hover {
   border: none;
   background-color: transparent;
 }
-.dashboard-h2{
+.dashboard-h2 {
   color: limegreen;
-  font-family: 'Xanh Mono', monospace;
+  font-family: "Xanh Mono", monospace;
   display: inline-block;
   padding-left: 10px;
 }
 .dashboard-h2 a {
   text-decoration: none;
 }
-.dashboard-h2:hover{
+.dashboard-h2:hover {
   cursor: pointer;
 }
 .dashboard-button:hover {
@@ -172,10 +190,6 @@ nav a:hover {
 
 .change-container {
   display: flex;
-  justify-content: space-around; 
+  justify-content: space-around;
   max-width: 900px;
 }
-
-
-
-
