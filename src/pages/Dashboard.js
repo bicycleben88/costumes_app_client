@@ -56,7 +56,7 @@ const Dashboard = (props) => {
 
   const loaded = () => {
     return (
-      <section>
+      <section className="dashboard">
         <Link to="/new">
           <h2 className="dashboard-h2">Make a new Costume</h2>
         </Link>
