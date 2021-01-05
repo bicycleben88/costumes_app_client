@@ -1,17 +1,32 @@
-import React from 'react';
+import React from "react";
 
 const Costume = (props) => {
-    const { costume } = props
-    return (
-        <div className="costume">
-            <h4>Accessory</h4>
-            {costume.accessory ? <img src={costume.accessory.img} /> : null}
-            <h4>Top</h4>
-            {costume.top ? <img src={costume.top.img} /> : null}
-            <h4>Bottom</h4>
-            {costume.bottom ? <img src={costume.bottom.img} /> : null}
-        </div>
-    )
-}
+  const { costume } = props;
+  return (
+    <div className="costume">
+      <h4>{costume.name}</h4>
+      <div>
+        {costume.accessory ? (
+          <div
+            className="item"
+            style={{ backgroundImage: `url(${costume.accessory.img})` }}
+          />
+        ) : null}
+        {costume.top ? (
+          <div
+            className="item"
+            style={{ backgroundImage: `url(${costume.top.img})` }}
+          />
+        ) : null}
+        {costume.bottom ? (
+          <div
+            className="item"
+            style={{ backgroundImage: `url(${costume.bottom.img})` }}
+          />
+        ) : null}
+      </div>
+    </div>
+  );
+};
 
-export default Costume
+export default Costume;
