@@ -5,12 +5,18 @@
 :root {
   --background-orange: rgba(255, 165, 0, 0.6);
 }
-body {
+html {
   margin: 0;
   background-color: black;
+  width: 95%;
+}
+.app-body {
+  display: flex;
+  width: 100%;
 }
 main {
   display: flex;
+  flex: 1;
   min-height: 100vh;
   background-image: url("/addams.jpg");
   background-size: contain;
@@ -23,9 +29,7 @@ main {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 200px;
   height: auto;
-  background-color: var(--background-orange);
 }
 .costume h4 {
   margin: 1px;
@@ -96,16 +100,23 @@ aside a:hover {
 .new,
 .change-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
+  width: 100%;
+}
+.new-container {
+  width: 100%;
 }
 .new-costume {
   display: flex;
   flex-direction: column;
-  flex-basis: 200px;
+  align-self: flex-start;
+  margin: 0 auto;
   background-color: var(--background-orange);
   border: 1px solid darkorange;
-  margin: 0 3px 0 3px;
   border-radius: 3px;
+}
+.new-costume h2 {
+  margin: 2px;
 }
 .items-container {
   display: flex;
@@ -149,6 +160,8 @@ aside a:hover {
   font-size: 1.25em;
 }
 
+/* Dashboard */
+
 /* Carousel */
 .carousel {
   display: flex;
@@ -165,8 +178,6 @@ aside a:hover {
   background-color: limegreen;
   cursor: pointer;
 }
-
-/* Dashboard */
 
 .dashboard {
   display: flex;
@@ -213,4 +224,63 @@ aside a:hover {
   display: flex;
   justify-content: space-around;
   max-width: 900px;
+}
+
+@media (max-width: 1300px) {
+  .app-body {
+    flex-direction: column;
+  }
+  aside {
+    flex-direction: row;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--background-orange);
+  }
+  nav,
+  .links {
+    display: flex;
+  }
+  nav {
+    width: 30%;
+    justify-content: space-between;
+  }
+  .links a {
+    margin: 0 2px;
+  }
+  aside a:hover {
+    font-size: 1em;
+    text-decoration: underline;
+  }
+}
+@media (max-width: 950px) {
+  header h1 {
+    font-size: 4em;
+  }
+  nav {
+    flex: 1;
+    justify-content: space-around;
+  }
+  .new {
+    flex-direction: column;
+    align-items: center;
+  }
+  .new-costume .costume {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  .new-costume {
+    width: 100%;
+    align-items: center;
+  }
+  .items-container {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2px;
+    width: 500px;
+  }
+  .items-container h2 {
+    display: none;
+  }
 }

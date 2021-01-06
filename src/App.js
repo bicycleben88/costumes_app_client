@@ -76,58 +76,60 @@ function App() {
             <h1 className="nav-header">Costume Collector</h1>
           </Link>
         </header>
-        <main>
+        <body className="app-body">
           <Aside />
-          <Switch>
-            <Route
-              exact
-              path="/"
-              render={(routerProps) =>
-                globalState.token ? (
-                  <Dashboard
+          <main>
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={(routerProps) =>
+                  globalState.token ? (
+                    <Dashboard
+                      {...routerProps}
+                      blankCostume={blankCostume}
+                      findCostume={findCostume}
+                    />
+                  ) : (
+                    <Home {...routerProps} />
+                  )
+                }
+              />
+              <Route
+                exact
+                path="/signup"
+                render={(routerProps) => <Signup {...routerProps} />}
+              />
+              <Route
+                exact
+                path="/login"
+                render={(routerProps) => <LogIn {...routerProps} />}
+              />
+              <Route
+                exact
+                path="/new"
+                render={(routerProps) => (
+                  <New
                     {...routerProps}
                     blankCostume={blankCostume}
-                    findCostume={findCostume}
+                    addCostume={addCostume}
                   />
-                ) : (
-                  <Home {...routerProps} />
-                )
-              }
-            />
-            <Route
-              exact
-              path="/signup"
-              render={(routerProps) => <Signup {...routerProps} />}
-            />
-            <Route
-              exact
-              path="/login"
-              render={(routerProps) => <LogIn {...routerProps} />}
-            />
-            <Route
-              exact
-              path="/new"
-              render={(routerProps) => (
-                <New
-                  {...routerProps}
-                  blankCostume={blankCostume}
-                  addCostume={addCostume}
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/change"
-              render={(routerProps) => (
-                <Change
-                  {...routerProps}
-                  costume={foundCostume}
-                  updateCostume={updateCostume}
-                />
-              )}
-            />
-          </Switch>
-        </main>
+                )}
+              />
+              <Route
+                exact
+                path="/change"
+                render={(routerProps) => (
+                  <Change
+                    {...routerProps}
+                    costume={foundCostume}
+                    updateCostume={updateCostume}
+                  />
+                )}
+              />
+            </Switch>
+          </main>
+        </body>
       </div>
     </GlobalContext.Provider>
   );

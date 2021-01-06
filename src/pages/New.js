@@ -34,7 +34,7 @@ const New = (props) => {
 
   const loaded = () => {
     return (
-      <section>
+      <section className="new-container">
         <h2 onClick={() => addCostume(costume)} className="dashboard-h2">
           Add Costume
         </h2>
