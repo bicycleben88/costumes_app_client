@@ -5,29 +5,25 @@
   font-family: var(--second-font);
 }
 :root {
-  --background-dark: #22212180;
+  --background-dark: #1f1c1880;
   --background-middle: #2b2a2a80;
   --background-light: #f8f8ff80;
+  --background-red: #8e0e0080;
   --second-font: "Xanh Mono", monospace;
   --main-font: "Yeon Sung", cursive;
-  --dark-shade: #222121;
+  --dark-shade: #1f1c18;
   --middle-shade: #2b2a2a;
   --light-shade: #605553;
   --border: 1px solid var(--middle-shade);
   --white: #f8f8ff;
-  --red: #b20000;
+  --red: #8e0e00;
 }
 html {
-  margin: 0;
-  background-color: var(--dark-shade);
+  margin: 0 auto;
   width: 95%;
   color: var(--white);
-  background-image: linear-gradient(
-    to top,
-    var(--red),
-    var(--dark-shade) 20%,
-    var(--light-shade)
-  );
+  background-image: linear-gradient(to top, var(--red), var(--dark-shade) 20%);
+  min-height: 100vh;
 }
 .app-body {
   display: flex;
@@ -36,7 +32,6 @@ html {
 main {
   display: flex;
   flex: 1;
-  min-height: 100vh;
 }
 a {
   color: var(--white);
@@ -182,7 +177,7 @@ aside a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
   overflow-y: auto;
 }
@@ -191,6 +186,7 @@ aside a:hover {
   margin: 2px;
 }
 .carousel .costume {
+  flex-direction: row;
   background-color: var(--background-light);
   border: var(--border);
   border-radius: 4px;
@@ -200,6 +196,9 @@ a {
   border: none;
   background-color: transparent;
   display: inline;
+}
+.dashboard button {
+  color: var(--red);
 }
 .dashboard h2 {
   font-family: var(--main-font);
@@ -220,14 +219,14 @@ a {
   align-items: center;
 }
 .slide-arrow {
-  background-color: var(--background-light);
-  padding: 1px;
+  background-color: var(--background-red);
+  padding: 5px;
   margin: 0 2px;
   border: var(--border);
   border-radius: 2px;
 }
 .slide-arrow:hover {
-  background-color: var(--white);
+  background-color: var(--red);
   cursor: pointer;
 }
 
