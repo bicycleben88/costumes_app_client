@@ -58,8 +58,22 @@ const Dashboard = (props) => {
     return (
       <section className="dashboard">
         <Link to="/new">
-          <h2 className="dashboard-h2">Make a new Costume</h2>
+          <h2>Make a new Costume</h2>
         </Link>
+        <h1>{userCostumes[costumeIndex].name}</h1>
+        <span>
+          <button onClick={() => deleteCostume(userCostumes[costumeIndex])}>
+            Delete
+          </button>
+          <button
+            onClick={() => {
+              props.findCostume(userCostumes[costumeIndex]);
+              props.history.push("/change");
+            }}
+          >
+            Change
+          </button>
+        </span>
         <article className="carousel">
           <Arrow
             direction="left"

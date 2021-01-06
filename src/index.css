@@ -162,6 +162,47 @@ aside a:hover {
 
 /* Dashboard */
 
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+  overflow-y: auto;
+}
+.dashboard h1 {
+  font-size: 3em;
+  color: darkorange;
+  margin: 2px;
+}
+.carousel .costume {
+  background-color: var(--background-orange);
+  border: 1px solid darkorange;
+  border-radius: 4px;
+}
+.dashboard button,
+a {
+  border: none;
+  background-color: transparent;
+  color: darkorange;
+  display: inline;
+}
+.dashboard h2 {
+  color: limegreen;
+  font-family: "Xanh Mono", monospace;
+  display: inline-block;
+}
+.dashboard a {
+  text-decoration: none;
+}
+.dashboard-h2:hover {
+  cursor: pointer;
+}
+.dashboard button:hover,
+.dashboard a:hover {
+  cursor: pointer;
+  font-size: 1.25em;
+}
 /* Carousel */
 .carousel {
   display: flex;
@@ -177,45 +218,6 @@ aside a:hover {
 .slide-arrow:hover {
   background-color: limegreen;
   cursor: pointer;
-}
-
-.dashboard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50%;
-  margin: 0 auto;
-  overflow-y: auto;
-}
-.dashboard-container h3 {
-  text-align: center;
-}
-.dashboard-container {
-  display: flex;
-  padding: 10px;
-}
-.dashboard-container :nth-child(4) {
-  justify-self: stretch;
-}
-.dashboard-button {
-  border: none;
-  background-color: transparent;
-}
-.dashboard-h2 {
-  color: limegreen;
-  font-family: "Xanh Mono", monospace;
-  display: inline-block;
-  padding-left: 10px;
-}
-.dashboard-h2 a {
-  text-decoration: none;
-}
-.dashboard-h2:hover {
-  cursor: pointer;
-}
-.dashboard-button:hover {
-  cursor: pointer;
-  font-size: 1.25em;
 }
 
 /* Change Page */
