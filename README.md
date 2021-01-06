@@ -6,7 +6,7 @@
 >
 > [costumes-api.herokuapp.com](https://costumes-api.herokuapp.com/items)
 
-![Landing page to Creepy Costumes](https://i.imgur.com/4w3P8yV.png)
+![Landing page to Creepy Costumes](https://i.imgur.com/5C3nDAZ.png)
 
 ## Technologies Used
 
