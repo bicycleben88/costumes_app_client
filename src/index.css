@@ -1,14 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap");
 * {
   box-sizing: border-box;
+  font-family: var(--second-font);
 }
 :root {
-  --background-orange: rgba(255, 165, 0, 0.6);
+  --background-dark: #22212180;
+  --background-middle: #2b2a2a80;
+  --background-light: #f8f8ff80;
+  --second-font: "Xanh Mono", monospace;
+  --main-font: "Yeon Sung", cursive;
+  --dark-shade: #222121;
+  --middle-shade: #2b2a2a;
+  --light-shade: #605553;
+  --border: 1px solid var(--middle-shade);
+  --white: #f8f8ff;
+  --red: #b20000;
 }
 html {
   margin: 0;
-  background-color: black;
+  background-color: var(--dark-shade);
   width: 95%;
+  color: var(--white);
+  background-image: linear-gradient(
+    to top,
+    var(--red),
+    var(--dark-shade) 20%,
+    var(--light-shade)
+  );
 }
 .app-body {
   display: flex;
@@ -18,11 +37,12 @@ main {
   display: flex;
   flex: 1;
   min-height: 100vh;
-  background-image: url("/addams.jpg");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 }
+a {
+  color: var(--white);
+  text-decoration: none;
+}
+/* Costume */
 
 .costume {
   display: flex;
@@ -33,101 +53,6 @@ main {
 }
 .costume h4 {
   margin: 1px;
-}
-
-/* Nav Style ----------- */
-
-aside {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 33vh;
-  border-right: 1px solid var(--background-orange);
-}
-header h1 {
-  color: limegreen;
-  font-family: "Xanh Mono", monospace;
-  font-size: 6em;
-  width: 100%;
-  text-align: center;
-}
-aside a {
-  color: darkorange;
-  text-decoration: none;
-  line-height: 45px;
-  display: block;
-  text-align: center;
-}
-aside a:hover {
-  font-size: 1.5em;
-}
-
-/* Home / SignUp / LogIn Page  */
-
-.submit-button {
-  border: 1.5px solid darkorange;
-  background-color: var(--background-orange);
-}
-.home {
-  height: auto;
-  width: 60%;
-  margin: 0 auto;
-}
-.home h3 {
-  color: limegreen;
-  text-align: center;
-  background-color: rgba(50, 205, 50, 0.5);
-  padding: 5px;
-  border: 1px solid limegreen;
-  border-radius: 7px;
-  box-shadow: 1px 1px 25px limegreen;
-}
-.form {
-  height: auto;
-  margin: 0 auto;
-}
-.form form {
-  color: limegreen;
-  background-color: rgba(50, 205, 50, 0.3);
-  padding: 5px;
-  border: 1px solid limegreen;
-  border-radius: 7px;
-  box-shadow: 1px 1px 25px limegreen;
-}
-
-/* New Page */
-
-.new,
-.change-container {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-}
-.new-container {
-  width: 100%;
-}
-.new-costume {
-  display: flex;
-  flex-direction: column;
-  align-self: flex-start;
-  margin: 0 auto;
-  background-color: var(--background-orange);
-  border: 1px solid darkorange;
-  border-radius: 3px;
-}
-.new-costume h2 {
-  margin: 2px;
-}
-.items-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  flex-basis: 200px;
-  border: 1px solid darkorange;
-  border-radius: 3px;
-  background-color: var(--background-orange);
-  margin: 0 3px 0 3px;
-  align-items: center;
 }
 .item {
   display: flex;
@@ -160,6 +85,97 @@ aside a:hover {
   font-size: 1.25em;
 }
 
+/* Nav */
+
+aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 33vh;
+  border-right: var(--border);
+}
+header h1 {
+  font-family: var(--main-font);
+  font-size: 6em;
+  width: 100%;
+  text-align: center;
+  margin: 2px;
+}
+aside a {
+  line-height: 45px;
+  display: block;
+  text-align: center;
+}
+aside a:hover {
+  font-size: 1.5em;
+}
+
+/* Home / SignUp / LogIn Page  */
+
+.submit-button {
+  border: var(--border);
+  background-color: var(--background-dark);
+}
+.home {
+  height: auto;
+  width: 60%;
+  margin: 0 auto;
+}
+.home h3 {
+  text-align: center;
+  background-color: var(--background-light);
+  padding: 5px;
+  border: var(--border);
+  border-radius: 7px;
+  box-shadow: 1px 1px 25px limegreen;
+}
+.form {
+  height: auto;
+  margin: 0 auto;
+}
+.form form {
+  background-color: var(--background-light);
+  padding: 5px;
+  border: var(--border);
+  border-radius: 7px;
+  box-shadow: 1px 1px 25px var(--light-shade);
+}
+
+/* New Page */
+
+.new,
+.change-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.new-container {
+  width: 100%;
+}
+.new-costume {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin: 0 auto;
+  background-color: var(--background-dark);
+  border: var(--border);
+  border-radius: 3px;
+}
+.new-costume h2 {
+  margin: 2px;
+}
+.items-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-basis: 200px;
+  border: var(--border);
+  border-radius: 3px;
+  background-color: var(--background-dark);
+  margin: 0 3px 0 3px;
+  align-items: center;
+}
+
 /* Dashboard */
 
 .dashboard {
@@ -172,51 +188,46 @@ aside a:hover {
 }
 .dashboard h1 {
   font-size: 3em;
-  color: darkorange;
   margin: 2px;
 }
 .carousel .costume {
-  background-color: var(--background-orange);
-  border: 1px solid darkorange;
+  background-color: var(--background-light);
+  border: var(--border);
   border-radius: 4px;
 }
 .dashboard button,
 a {
   border: none;
   background-color: transparent;
-  color: darkorange;
   display: inline;
 }
 .dashboard h2 {
-  color: limegreen;
-  font-family: "Xanh Mono", monospace;
+  font-family: var(--main-font);
   display: inline-block;
 }
-.dashboard a {
-  text-decoration: none;
-}
-.dashboard-h2:hover {
+.dashboard h2:hover {
   cursor: pointer;
 }
-.dashboard button:hover,
-.dashboard a:hover {
+.dashboard button:hover {
   cursor: pointer;
   font-size: 1.25em;
 }
+
 /* Carousel */
+
 .carousel {
   display: flex;
   align-items: center;
 }
 .slide-arrow {
-  background-color: rgba(50, 205, 50, 0.5);
+  background-color: var(--background-light);
   padding: 1px;
   margin: 0 2px;
-  border: 1px solid limegreen;
+  border: var(--border);
   border-radius: 2px;
 }
 .slide-arrow:hover {
-  background-color: limegreen;
+  background-color: var(--white);
   cursor: pointer;
 }
 
@@ -236,7 +247,7 @@ a {
     flex-direction: row;
     width: 100%;
     border: none;
-    border-bottom: 1px solid var(--background-orange);
+    border-bottom: var(--border);
   }
   nav,
   .links {
