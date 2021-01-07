@@ -8,7 +8,7 @@
   --background-dark: #1f1c1880;
   --background-middle: #2b2a2a80;
   --background-light: #f8f8ff80;
-  --background-red: #8e0e0080;
+  --background-red: #8e0e0070;
   --second-font: "Xanh Mono", monospace;
   --main-font: "Yeon Sung", cursive;
   --dark-shade: #1f1c18;
@@ -71,7 +71,8 @@ a {
   background-color: transparent;
 }
 .item h4 {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: var(--white);
+  color: var(--red);
   padding: 2px;
   margin: 1px 0;
 }
@@ -136,29 +137,34 @@ aside a:hover {
   box-shadow: 1px 1px 25px var(--light-shade);
 }
 
-/* New Page */
+/* New / Change Pages */
 
 .new,
-.change-container {
+.change {
   display: flex;
   justify-content: flex-end;
   width: 100%;
 }
-.new-container {
+.new-container,
+.change-container {
   width: 100%;
 }
-.new-costume {
+.new-costume,
+.user-costume {
   display: flex;
   flex-direction: column;
+  align-items: center;
   align-self: flex-start;
   margin: 0 auto;
-  background-color: var(--background-dark);
+  background-color: var(--background-red);
   border: var(--border);
   border-radius: 3px;
 }
-.new-costume h2 {
-  margin: 2px;
+.new-container h2,
+.change-container h2 {
+  margin: 0 5px;
 }
+
 .items-container {
   display: flex;
   flex-direction: column;
@@ -166,7 +172,7 @@ aside a:hover {
   flex-basis: 200px;
   border: var(--border);
   border-radius: 3px;
-  background-color: var(--background-dark);
+  background-color: var(--background-light);
   margin: 0 3px 0 3px;
   align-items: center;
 }
@@ -230,14 +236,6 @@ a {
   cursor: pointer;
 }
 
-/* Change Page */
-
-.change-container {
-  display: flex;
-  justify-content: space-around;
-  max-width: 900px;
-}
-
 @media (max-width: 1300px) {
   .app-body {
     flex-direction: column;
@@ -272,16 +270,19 @@ a {
     flex: 1;
     justify-content: space-around;
   }
-  .new {
+  .new,
+  .change {
     flex-direction: column;
     align-items: center;
   }
-  .new-costume .costume {
+  .new-costume .costume,
+  .user-costume .costume {
     flex-direction: row;
     justify-content: center;
     width: 100%;
   }
-  .new-costume {
+  .new-costume,
+  .user-costume {
     width: 100%;
     align-items: center;
   }
