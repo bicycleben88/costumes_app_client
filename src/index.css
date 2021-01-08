@@ -169,9 +169,13 @@ aside a:hover {
 }
 .new-container h2,
 .change-container h2 {
-  margin: 0 5px;
+  margin: 10px;
+  text-align: center;
 }
-
+.new-container h2:hover,
+.change-container h2:hover {
+  cursor: pointer;
+}
 .items-container {
   display: flex;
   flex-direction: column;
@@ -196,6 +200,7 @@ aside a:hover {
 .dashboard h1 {
   font-size: 3em;
   margin: 2px;
+  text-align: center;
 }
 .carousel .costume {
   flex-direction: row;
@@ -284,12 +289,13 @@ a {
   .user-costume .costume {
     flex-direction: row;
     justify-content: center;
-    width: 100%;
   }
   .new-costume,
   .user-costume {
     width: 100%;
     align-items: center;
+    width: auto;
+    margin: 0 auto;
   }
   .items-container {
     flex-direction: row;
@@ -300,5 +306,31 @@ a {
   }
   .items-container h2 {
     display: none;
+  }
+}
+@media (max-width: 600px) {
+  .new-costume .costume,
+  .user-costume .costume,
+  .carousel .costume,
+  .items-container,
+  aside,
+  aside nav {
+    flex-direction: column;
+  }
+  aside {
+    align-items: center;
+  }
+  aside .links {
+    justify-content: space-around;
+    width: 100%;
+  }
+  .new-costume,
+  .user-costume,
+  .items-container {
+    width: auto;
+  }
+  .form form input {
+    display: block;
+    margin: 2px auto;
   }
 }
