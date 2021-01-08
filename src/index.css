@@ -84,7 +84,7 @@ a {
 
 /* Nav */
 header {
-  height: 20vh;
+  min-height: 20vh;
 }
 aside {
   display: flex;
@@ -101,9 +101,12 @@ header h1 {
   margin: 2px;
 }
 aside a {
-  line-height: 45px;
+  line-height: 3;
   display: block;
   text-align: center;
+}
+aside .links a {
+  line-height: 1.5;
 }
 aside a:hover {
   font-size: 1.5em;
@@ -264,8 +267,9 @@ a {
     width: 30%;
     justify-content: space-between;
   }
-  .links a {
-    margin: 0 2px;
+  aside .links a {
+    margin: 0 3px;
+    line-height: 3;
   }
   aside a:hover {
     font-size: 1em;
