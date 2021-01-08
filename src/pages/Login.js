@@ -57,12 +57,14 @@ const Login = (props) => {
           type="text"
           name="username"
           value={form.username}
+          placeholder="username"
           onChange={handleChange}
         />
         <input
           type="password"
           name="password"
           value={form.password}
+          placeholder="password"
           onChange={handleChange}
         />
         <input type="submit" value="Log In" className="submit-button" />
