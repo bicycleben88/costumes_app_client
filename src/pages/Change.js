@@ -10,6 +10,24 @@ const Change = (props) => {
   const [userCostume, setUserCostume] = React.useState(null);
   const [items, setItems] = React.useState(null);
 
+  //Get Items
+  const getItems = async () => {
+    const response = await fetch(`${url}/items`);
+    const data = await response.json();
+    await setItems(data);
+  };
+
+  //handle adding costume to state
+  const addToCostume = (item) => {
+    setUserCostume({ ...userCostume, [item.type]: item });
+  };
+
+  //Make API/PUT request
+  const updateCostume = (costume) => {
+    props.updateCostume(costume);
+    props.history.push("/");
+  };
+
   //Set initial state
   React.useEffect(() => {
     const loadState = async () => {
@@ -18,21 +36,6 @@ const Change = (props) => {
     };
     loadState();
   }, []);
-  //Get Items
-  const getItems = async () => {
-    const response = await fetch(`${url}/items`);
-    const data = await response.json();
-    await setItems(data);
-  };
-  //handle adding costume to state
-  const addToCostume = (item) => {
-    setUserCostume({ ...userCostume, [item.type]: item });
-  };
-  //Make API/PUT request
-  const updateCostume = (costume) => {
-    props.updateCostume(costume);
-    props.history.push("/");
-  };
 
   const loaded = () => {
     return (

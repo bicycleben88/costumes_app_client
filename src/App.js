@@ -1,7 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router";
 import { Link } from "react-router-dom";
-import "./App.css";
 import Aside from "./components/Aside";
 import Signup from "./pages/Signup";
 import LogIn from "./pages/Login";
@@ -13,37 +12,22 @@ import New from "./pages/New";
 export const GlobalContext = React.createContext(null);
 
 function App() {
-  //Create global state for multiple components to use
   const [globalState, setGlobalState] = React.useState({
     url: "https://costumes-api.herokuapp.com",
     token: null,
   });
-
-  //create blank costume to send to new and change page for their states
   const blankCostume = {
     top: null,
     bottom: null,
     accessory: null,
     name: null,
   };
-
-  //create found costume to send to change page
   const [foundCostume, setFoundCostume] = React.useState(blankCostume);
 
-  // update found costume passed down from dashboard
   const findCostume = (costume) => {
     setFoundCostume(costume);
   };
 
-  //Change state when user logs on/off
-  React.useEffect(() => {
-    const token = JSON.parse(window.localStorage.getItem("token"));
-    if (token) {
-      setGlobalState({ ...globalState, token: token.token });
-    }
-  }, []);
-
-  // Add Costume
   const addCostume = (costume) => {
     fetch(`${globalState.url}/costumes`, {
       method: "POST",
@@ -55,7 +39,6 @@ function App() {
     });
   };
 
-  //Update Costume
   const updateCostume = (costume) => {
     fetch(`${globalState.url}/costumes/${costume._id}`, {
       method: "PUT",
@@ -66,6 +49,13 @@ function App() {
       body: JSON.stringify(costume),
     });
   };
+
+  React.useEffect(() => {
+    const token = JSON.parse(window.localStorage.getItem("token"));
+    if (token) {
+      setGlobalState({ ...globalState, token: token.token });
+    }
+  }, []);
 
   return (
     <GlobalContext.Provider value={{ globalState, setGlobalState }}>
@@ -84,11 +74,7 @@ function App() {
                 path="/"
                 render={(routerProps) =>
                   globalState.token ? (
-                    <Dashboard
-                      {...routerProps}
-                      blankCostume={blankCostume}
-                      findCostume={findCostume}
-                    />
+                    <Dashboard {...routerProps} findCostume={findCostume} />
                   ) : (
                     <Home {...routerProps} />
                   )

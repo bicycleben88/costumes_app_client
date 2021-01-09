@@ -9,25 +9,25 @@ const New = (props) => {
   const [items, setItems] = React.useState(null);
   const [costume, setCostume] = React.useState(props.blankCostume);
 
-  //handle adding costume to state
   const addToCostume = (item) => {
     setCostume({ ...costume, [item.type]: item });
   };
-  //add costume
+
   const addCostume = (costume) => {
     props.addCostume(costume);
     props.history.push("/");
   };
-  //handle input change
+
   const handleChange = (event) => {
     setCostume({ ...costume, [event.target.name]: event.target.value });
   };
-  //Get Items
+
   const getItems = async () => {
     const response = await fetch(`${url}/items`);
     const data = await response.json();
     await setItems(data);
   };
+
   React.useEffect(() => {
     getItems();
   }, []);
