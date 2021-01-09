@@ -3,48 +3,33 @@ import { Link } from "react-router-dom";
 import { GlobalContext } from "../App";
 
 const Signup = (props) => {
-  //Deconstruct globalState and setGlobalState and pass into useContext
   const { globalState, setGlobalState } = React.useContext(GlobalContext);
   const { url } = globalState;
-
-  //create empty user object
+  const [form, setForm] = React.useState(blank);
   const blank = {
     username: "",
     password: "",
   };
 
-  //Define state and setState for form
-  const [form, setForm] = React.useState(blank);
-
-  //Allow user to type into text field
   const handleChange = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
 
-  //When user clicks Sign Up
   const handleSubmit = (event) => {
-    //stop page from reloading
     event.preventDefault();
-    //deconstruct username and password from state
     const { username, password } = form;
-    //make API call
+
     fetch(`${url}/auth/signup`, {
-      //enter method details
       method: "post",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ username, password }),
     })
-      //convert response to json
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        //add token from logged-in user to globalState
         setGlobalState({ ...globalState, token: data.token });
-        //reset the form
         setForm(blank);
-        //send user to log in page
         props.history.push("/login");
       });
   };
