@@ -5,11 +5,11 @@ import { GlobalContext } from "../App";
 const Signup = (props) => {
   const { globalState, setGlobalState } = React.useContext(GlobalContext);
   const { url } = globalState;
-  const [form, setForm] = React.useState(blank);
   const blank = {
     username: "",
     password: "",
   };
+  const [form, setForm] = React.useState(blank);
 
   const handleChange = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
