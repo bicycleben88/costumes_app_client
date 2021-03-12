@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Change from "./pages/Change";
 import New from "./pages/New";
+import Draw from "./pages/Draw";
 
 export const GlobalContext = React.createContext(null);
 
@@ -111,6 +112,10 @@ function App() {
                     updateCostume={updateCostume}
                   />
                 )}
+              />
+              <Route
+                exact="/draw"
+                render={(routerProps) => <Draw {...routerProps} />}
               />
             </Switch>
           </main>

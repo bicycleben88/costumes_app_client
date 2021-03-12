@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { GlobalContext } from "../App";
 
 const Aside = (props) => {
-  //Destructure globalState and setGlobalState and pass into useContext
   const { globalState, setGlobalState } = React.useContext(GlobalContext);
 
   //log out button with click event
@@ -26,6 +25,7 @@ const Aside = (props) => {
         <Link to="/login">Log In</Link>
         {globalState.token ? logOut : null}
         <Link to="/">Costumes</Link>
+        <Link to="/draw">Draw a Picture</Link>
       </nav>
       <div className="links">
         <a
