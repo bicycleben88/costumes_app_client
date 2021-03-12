@@ -276,6 +276,30 @@ a {
     text-decoration: underline;
   }
 }
+
+/* canvas */
+.draw {
+  width: 100%;
+}
+.canvas-container {
+  position: relative;
+  height: 480px;
+  width: 640px;
+}
+canvas,
+.canvas-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 480px;
+  width: 640px;
+}
+canvas {
+  z-index: 2;
+}
+.canvas-bg {
+  z-index: 0;
+}
 @media (max-width: 950px) {
   header h1 {
     font-size: 4em;

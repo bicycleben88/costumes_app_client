@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Change from "./pages/Change";
 import New from "./pages/New";
+import Draw from "./pages/Draw";
 
 export const GlobalContext = React.createContext(null);
 
@@ -65,56 +66,59 @@ function App() {
             <h1 className="nav-header">Costume Collector</h1>
           </Link>
         </header>
-        <body className="app-body">
+        <main className="app-body">
           <Aside />
-          <main>
-            <Switch>
-              <Route
-                exact
-                path="/"
-                render={(routerProps) =>
-                  globalState.token ? (
-                    <Dashboard {...routerProps} findCostume={findCostume} />
-                  ) : (
-                    <Home {...routerProps} />
-                  )
-                }
-              />
-              <Route
-                exact
-                path="/signup"
-                render={(routerProps) => <Signup {...routerProps} />}
-              />
-              <Route
-                exact
-                path="/login"
-                render={(routerProps) => <LogIn {...routerProps} />}
-              />
-              <Route
-                exact
-                path="/new"
-                render={(routerProps) => (
-                  <New
-                    {...routerProps}
-                    blankCostume={blankCostume}
-                    addCostume={addCostume}
-                  />
-                )}
-              />
-              <Route
-                exact
-                path="/change"
-                render={(routerProps) => (
-                  <Change
-                    {...routerProps}
-                    costume={foundCostume}
-                    updateCostume={updateCostume}
-                  />
-                )}
-              />
-            </Switch>
-          </main>
-        </body>
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={(routerProps) =>
+                globalState.token ? (
+                  <Dashboard {...routerProps} findCostume={findCostume} />
+                ) : (
+                  <Home {...routerProps} />
+                )
+              }
+            />
+            <Route
+              exact
+              path="/signup"
+              render={(routerProps) => <Signup {...routerProps} />}
+            />
+            <Route
+              exact
+              path="/login"
+              render={(routerProps) => <LogIn {...routerProps} />}
+            />
+            <Route
+              exact
+              path="/new"
+              render={(routerProps) => (
+                <New
+                  {...routerProps}
+                  blankCostume={blankCostume}
+                  addCostume={addCostume}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/change"
+              render={(routerProps) => (
+                <Change
+                  {...routerProps}
+                  costume={foundCostume}
+                  updateCostume={updateCostume}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/draw"
+              render={(routerProps) => <Draw {...routerProps} />}
+            />
+          </Switch>
+        </main>
       </div>
     </GlobalContext.Provider>
   );

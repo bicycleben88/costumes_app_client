@@ -29,7 +29,7 @@ const New = (props) => {
   };
 
   React.useEffect(() => {
-    getItems();
+    return getItems();
   }, []);
 
   const loaded = () => {
