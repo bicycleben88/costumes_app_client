@@ -46,3 +46,7 @@
 > ### Back End:
 >
 > - Authentication middleware w/JWT & BCrypt
+
+## Notes
+
+> - Create Canvas in React: https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258
