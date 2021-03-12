@@ -1,24 +1,45 @@
 import React from "react";
 import Canvas from "../components/Canvas";
 
-const images = [
-  { url: "https://i.imgur.com/reakiRw.jpg", alt: "bernard spilsbury" },
-];
 const Draw = () => {
+  const [bgImage, setBgImage] = React.useState("");
+
+  const handleClick = (e) => {
+    setBgImage({
+      url: e.target.src,
+      alt: e.target.alt,
+    });
+  };
+
   return (
-    <section className="canvas-container">
-      <Canvas
-        images={<img src={images[0].url} alt={images[0].alt} width="200" />}
+    <section className="draw">
+      <div className="canvas-container">
+        <Canvas />
+        {bgImage && (
+          <img src={bgImage.url} alt={bgImage.alt} className="canvas-bg" />
+        )}
+      </div>
+      <img
+        src="https://i.imgur.com/reakiRw.jpg"
+        alt="bernard spilsbury"
+        width="150"
+        height="150"
+        onClick={handleClick}
       />
-      {images.map((image) => (
-        <img
-          src={image.url}
-          alt={image.alt}
-          width="200"
-          key={image.url}
-          className="canvas-bg"
-        />
-      ))}
+      <img
+        src="https://i.imgur.com/v3xZW51.jpg"
+        alt="belle gunness"
+        width="150"
+        height="150"
+        onClick={handleClick}
+      />
+      <img
+        src="https://i.imgur.com/6NQvFnn.jpg"
+        alt="clutter family"
+        width="150"
+        height="150"
+        onClick={handleClick}
+      />
     </section>
   );
 };

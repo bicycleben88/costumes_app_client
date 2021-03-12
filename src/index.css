@@ -278,16 +278,21 @@ a {
 }
 
 /* canvas */
+.draw {
+  width: 100%;
+}
 .canvas-container {
   position: relative;
+  height: 480px;
+  width: 640px;
 }
 canvas,
 .canvas-bg {
   position: absolute;
   top: 0;
   left: 0;
-  height: 400px;
-  width: 600px;
+  height: 480px;
+  width: 640px;
 }
 canvas {
   z-index: 2;
