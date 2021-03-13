@@ -43,10 +43,7 @@ a {
 /* Costume */
 .costume {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  height: auto;
+  justify-content: flex-end;
 }
 .costume h4 {
   margin: 1px;
@@ -139,6 +136,7 @@ header h1 {
 .new,
 .change {
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
   width: 100%;
 }
@@ -146,13 +144,14 @@ header h1 {
 .change-container {
   width: 100%;
 }
+
 .new-costume,
 .user-costume {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  align-self: flex-start;
-  margin: 0 auto;
+  justify-content: flex-end;
+  margin: 3px auto;
+  width: 100%;
   background-color: var(--background-red);
   border: var(--border);
   border-radius: 3px;
@@ -166,10 +165,18 @@ header h1 {
 .change-container h2:hover {
   cursor: pointer;
 }
+.new-container input {
+  display: block;
+  margin: 3px auto;
+}
+.new-costume h2,
+.user-costume h2 {
+  flex: 1;
+  text-align: left;
+}
 .items-container {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  justify-content: flex-end;
   flex-basis: 200px;
   border: var(--border);
   border-radius: 3px;
@@ -177,7 +184,10 @@ header h1 {
   margin: 0 3px 0 3px;
   align-items: center;
 }
-
+.items-container h2 {
+  flex: 1;
+  text-align: left;
+}
 /* Dashboard */
 .dashboard {
   display: flex;
@@ -264,18 +274,12 @@ canvas {
     font-size: 4em;
   }
   nav {
-    flex: 1;
     justify-content: space-around;
   }
   .new,
   .change {
     flex-direction: column;
     align-items: center;
-  }
-  .new-costume .costume,
-  .user-costume .costume {
-    flex-direction: row;
-    justify-content: center;
   }
   .new-costume,
   .user-costume {
@@ -309,6 +313,7 @@ canvas {
   .user-costume,
   .items-container {
     width: auto;
+    flex-direction: column;
   }
   .form form input {
     display: block;

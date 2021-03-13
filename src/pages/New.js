@@ -36,16 +36,16 @@ const New = (props) => {
     return (
       <section className="new-container">
         <h2 onClick={() => addCostume(costume)}>Add Costume</h2>
+        <input
+          name="name"
+          type="text"
+          value={costume.name}
+          placeholder="Costume Name"
+          onChange={handleChange}
+        />
         <article className="new">
           <div className="new-costume">
-            <h2>Your Costume! </h2>
-            <input
-              name="name"
-              type="text"
-              value={costume.name}
-              placeholder="Costume Name"
-              onChange={handleChange}
-            />
+            <h2>Your Costume</h2>
             <Costume costume={costume} />
           </div>
           <div className="items-container">
