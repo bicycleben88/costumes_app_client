@@ -27,12 +27,13 @@ html {
 }
 .app-body {
   display: flex;
+  flex-direction: column;
   width: 100%;
   min-height: 80vh;
 }
 main {
   display: flex;
-  flex: 1;
+  flex: 2;
 }
 a {
   color: var(--white);
@@ -86,11 +87,10 @@ a {
 header {
   min-height: 20vh;
 }
-aside {
+nav {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  width: 33vh;
+  flex: 1;
   border-right: var(--border);
 }
 header h1 {
@@ -99,17 +99,6 @@ header h1 {
   width: 100%;
   text-align: center;
   margin: 2px;
-}
-aside a {
-  line-height: 3;
-  display: block;
-  text-align: center;
-}
-aside .links a {
-  line-height: 1.5;
-}
-aside a:hover {
-  font-size: 1.5em;
 }
 
 /* Home / SignUp / LogIn Page  */
@@ -249,34 +238,6 @@ a {
   cursor: pointer;
 }
 
-@media (max-width: 1300px) {
-  .app-body {
-    flex-direction: column;
-  }
-  aside {
-    flex-direction: row;
-    width: 100%;
-    border: none;
-    border-bottom: var(--border);
-  }
-  nav,
-  .links {
-    display: flex;
-  }
-  nav {
-    width: 30%;
-    justify-content: space-between;
-  }
-  aside .links a {
-    margin: 0 3px;
-    line-height: 3;
-  }
-  aside a:hover {
-    font-size: 1em;
-    text-decoration: underline;
-  }
-}
-
 /* canvas */
 .draw {
   width: 100%;
@@ -341,16 +302,10 @@ canvas {
   .user-costume .costume,
   .carousel .costume,
   .items-container,
-  aside,
-  aside nav {
+  nav {
     flex-direction: column;
-  }
-  aside {
     align-items: center;
-  }
-  aside .links {
-    justify-content: space-around;
-    width: 100%;
+    justify-content: center;
   }
   .new-costume,
   .user-costume,

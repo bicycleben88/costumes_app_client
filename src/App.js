@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router";
 import { Link } from "react-router-dom";
-import Aside from "./components/Aside";
+import Nav from "./components/Nav";
 import Signup from "./pages/Signup";
 import LogIn from "./pages/Login";
 import Home from "./pages/Home";
@@ -67,7 +67,7 @@ function App() {
           </Link>
         </header>
         <main className="app-body">
-          <Aside />
+          <Nav />
           <Switch>
             <Route
               exact
