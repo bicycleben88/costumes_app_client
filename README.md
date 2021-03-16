@@ -2,6 +2,8 @@
 
 This is a front end web application built with React. It allows a user to Create, Read, Update & Delete (CRUD) a halloween costume from an inventory of festive items. It accesses a back end API I buit with Node that uses RESTful routes to serve data from a non-relational database (MongoDB)
 
+## [Video WalkThru](https://www.youtube.com/playlist?list=PLjYC3ZkfhqCpN1r8fTiDEfQJJgdzxw8QG)
+
 > ### Live Earls:
 >
 > [costumes-app-client.vercel.app](https://costumes-app-client.vercel.app/)
@@ -29,9 +31,10 @@ This is a front end web application built with React. It allows a user to Create
 
 ## Features & Functions
 
-> - Drawing Canvas
->   - create canvas context
->   - useRef() creates reference object to be used in \<canvas ref={referenceObject}
+> ### Drawing Canvas
+>
+> - create canvas context
+> - useRef() creates reference object to be used in \<canvas ref={referenceObject}> tag
 > - ![use ref](https://i.imgur.com/BGFmRir.png)
 > - ![canvas reference](https://i.imgur.com/w5r6g7q.png)
 >   - useEffect() defines canvas's context, configures it & invokes draw() function, passing the context as an argument.
@@ -48,7 +51,7 @@ This is a front end web application built with React. It allows a user to Create
 >     - use context methods to draw the line
 >     - store values of the last place the user had the mouse clicked
 > - ![draw function](https://i.imgur.com/s9OT9OY.png)
->   - .clearRect methods clears the canvas
+>   - .clearRect method clears the canvas
 > - ![clear canvas button](https://i.imgur.com/CLhIp0l.png)
 >   - .strokeStyle defines the color of the line
 > - ![color picker input](https://i.imgur.com/QndaAh1.png)
