@@ -27,6 +27,28 @@ const Canvas = (props) => {
 
   return (
     <>
+      <div className="canvas-buttons">
+        <label>
+          Color:{" "}
+          <input
+            type="color"
+            name="color"
+            onChange={(e) => (context.strokeStyle = `${e.target.value}`)}
+          />
+        </label>
+        <button
+          onClick={() =>
+            context.clearRect(
+              0,
+              0,
+              canvasRef.current.width,
+              canvasRef.current.height
+            )
+          }
+        >
+          Clear
+        </button>
+      </div>
       <canvas
         style={{ backgroundImage: `url(${props.background})` }}
         height="480"
@@ -40,26 +62,6 @@ const Canvas = (props) => {
         onMouseUp={() => (isDrawing = false)}
         onMouseOut={() => (isDrawing = false)}
       />
-      <button
-        onClick={() =>
-          context.clearRect(
-            0,
-            0,
-            canvasRef.current.width,
-            canvasRef.current.height
-          )
-        }
-      >
-        Clear
-      </button>
-      <label>
-        Color:{" "}
-        <input
-          type="color"
-          name="color"
-          onChange={(e) => (context.strokeStyle = `${e.target.value}`)}
-        />
-      </label>
     </>
   );
 };

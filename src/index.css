@@ -254,9 +254,29 @@ a {
   align-items: center;
   justify-content: center;
 }
+.draw .draw-images {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-top: 2px solid var(--white);
+  padding-top: 5px;
+  margin-top: 5px;
+}
 canvas {
   background-position: center;
   background-size: cover;
+}
+.canvas-buttons {
+  display: flex;
+  justify-content: center;
+  margin: 5px auto;
+}
+.canvas-buttons button {
+  background-color: transparent;
+  border: none;
+  color: var(--white);
+  font-size: 15px;
+  line-height: 1;
 }
 @media (max-width: 950px) {
   header h1 {

@@ -14,7 +14,7 @@ const Draw = () => {
   return (
     <section className="draw">
       <Canvas background={bgImage && bgImage.url} />
-      <div>
+      <div className="draw-images">
         <img
           src="https://i.imgur.com/reakiRw.jpg"
           alt="bernard spilsbury"
