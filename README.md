@@ -60,3 +60,9 @@ This is a front end web application built with React. It allows a user to Create
 
 > - Create Canvas in React: https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258
 > - useRef(): returns a mutable ref object whose .current property is initialized to the passed argument
+
+## Contact
+
+> - [LinkedIn](https://www.linkedin.com/in/benjamin-alt-higginbotham/)
+> - [Portfolio](https://higginbotham.fun/)
+> - [Tweet @BenMichaelJord1](https://twitter.com/BenMichaelJord1)
