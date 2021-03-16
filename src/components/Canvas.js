@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-const Canvas = () => {
+const Canvas = (props) => {
   const canvasRef = useRef(null);
   let isDrawing = false;
   let context;
@@ -26,18 +26,33 @@ const Canvas = () => {
   }, [draw]);
 
   return (
-    <canvas
-      height="480"
-      width="640"
-      ref={canvasRef}
-      onMouseDown={(e) => {
-        isDrawing = true;
-        [lastX, lastY] = [e.nativeEvent.offsetX, e.nativeEvent.offsetY];
-      }}
-      onMouseMove={(e) => draw(context, e)}
-      onMouseUp={() => (isDrawing = false)}
-      onMouseOut={() => (isDrawing = false)}
-    />
+    <>
+      <canvas
+        style={{ backgroundImage: `url(${props.background})` }}
+        height="480"
+        width="640"
+        ref={canvasRef}
+        onMouseDown={(e) => {
+          isDrawing = true;
+          [lastX, lastY] = [e.nativeEvent.offsetX, e.nativeEvent.offsetY];
+        }}
+        onMouseMove={(e) => draw(context, e)}
+        onMouseUp={() => (isDrawing = false)}
+        onMouseOut={() => (isDrawing = false)}
+      />
+      <button
+        onClick={() =>
+          context.clearRect(
+            0,
+            0,
+            canvasRef.current.width,
+            canvasRef.current.height
+          )
+        }
+      >
+        Clear
+      </button>
+    </>
   );
 };
 
