@@ -50,10 +50,10 @@ const Canvas = (props) => {
         </button>
       </div>
       <canvas
+        ref={canvasRef}
         style={{ backgroundImage: `url(${props.background})` }}
         height="480"
         width="640"
-        ref={canvasRef}
         onMouseDown={(e) => {
           isDrawing = true;
           [lastX, lastY] = [e.nativeEvent.offsetX, e.nativeEvent.offsetY];
