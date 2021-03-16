@@ -254,24 +254,29 @@ a {
   align-items: center;
   justify-content: center;
 }
-.canvas-container {
-  position: relative;
-  height: 480px;
-  width: 640px;
-}
-canvas,
-.canvas-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 480px;
-  width: 640px;
+.draw .draw-images {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-top: 2px solid var(--white);
+  padding-top: 5px;
+  margin-top: 5px;
 }
 canvas {
-  z-index: 2;
+  background-position: center;
+  background-size: cover;
 }
-.canvas-bg {
-  z-index: 0;
+.canvas-buttons {
+  display: flex;
+  justify-content: center;
+  margin: 5px auto;
+}
+.canvas-buttons button {
+  background-color: transparent;
+  border: none;
+  color: var(--white);
+  font-size: 15px;
+  line-height: 1;
 }
 @media (max-width: 950px) {
   header h1 {

@@ -13,13 +13,8 @@ const Draw = () => {
 
   return (
     <section className="draw">
-      <div className="canvas-container">
-        <Canvas />
-        {bgImage && (
-          <img src={bgImage.url} alt={bgImage.alt} className="canvas-bg" />
-        )}
-      </div>
-      <div>
+      <Canvas background={bgImage && bgImage.url} />
+      <div className="draw-images">
         <img
           src="https://i.imgur.com/reakiRw.jpg"
           alt="bernard spilsbury"
