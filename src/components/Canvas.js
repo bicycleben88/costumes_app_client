@@ -52,6 +52,14 @@ const Canvas = (props) => {
       >
         Clear
       </button>
+      <label>
+        Color:{" "}
+        <input
+          type="color"
+          name="color"
+          onChange={(e) => (context.strokeStyle = `${e.target.value}`)}
+        />
+      </label>
     </>
   );
 };
