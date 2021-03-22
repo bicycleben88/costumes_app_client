@@ -109,6 +109,9 @@ header h1 {
   height: auto;
   width: 100%;
 }
+.home {
+  flex-direction: column;
+}
 .home h3 {
   text-align: center;
   background-color: var(--background-light);

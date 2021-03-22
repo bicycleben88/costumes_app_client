@@ -19,6 +19,10 @@ const Video = () => {
     playButton.textContent = icon;
   };
 
+  const skip = (e) => {
+    video.currentTime += parseFloat(e.target.dataset.skip);
+  };
+
   React.useEffect(() => {
     video = videoRef.current;
     playButton = playButtonRef.current;
@@ -34,12 +38,18 @@ const Video = () => {
         onPlay={updateButton}
         onPause={updateButton}
       />
-      <div className="player_controls">
+      <div className="player-controls">
         <button
           ref={playButtonRef}
-          className="player_button"
+          className="player-button"
           onClick={togglePlay}
         />
+        <button data-skip="-10" className="player-button" onClick={skip}>
+          « 10s{" "}
+        </button>
+        <button data-skip="25" className="player-button" onClick={skip}>
+          25s »
+        </button>
       </div>
     </div>
   );
