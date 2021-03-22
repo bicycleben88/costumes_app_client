@@ -278,6 +278,9 @@ canvas {
   font-size: 15px;
   line-height: 1;
 }
+
+/* video player */
+
 @media (max-width: 950px) {
   header h1 {
     font-size: 4em;
