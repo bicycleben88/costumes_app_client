@@ -315,6 +315,9 @@ canvas {
   transition: height 0.3s;
   cursor: ew-resize;
 }
+.progress:hover {
+  cursor: pointer;
+}
 .progress-filled {
   width: 50%;
   background-color: var(--red);
