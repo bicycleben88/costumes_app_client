@@ -58,7 +58,7 @@ This is a front end web application built with React. It allows a user to Create
 >
 > ### Custom Video Player
 >
-> - useRef() to create reference object to DOM element
+> - useRef() to create reference object for DOM element
 > - ![video use ref](https://i.imgur.com/SI1HGUP.png)
 > - add reference to element
 > - ![video reference](https://i.imgur.com/tACzWfE.png)
@@ -90,7 +90,7 @@ This is a front end web application built with React. It allows a user to Create
 > - ![handle progress function](https://i.imgur.com/0iih9fi.png)
 > - handleRangeUpdate() - change the video's volume or playback rate to the value of the input
 > - scrub() - moves current video's current time
->   - calculate time play to play the video
+>   - calculate time to play the video
 >   - set the current time of the video to that time
 > - ![scrub function](https://i.imgur.com/jSeL4sk.png)
 
