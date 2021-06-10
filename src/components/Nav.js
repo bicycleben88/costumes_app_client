@@ -20,11 +20,22 @@ const Nav = (props) => {
 
   return (
     <nav>
-      <Link to="/signup">Sign Up</Link>
-      <Link to="/login">Log In</Link>
+      {!globalState.token ? <Link to="/signup">Sign Up</Link> : null}
+      {!globalState.token ? <Link to="/login">Log In</Link> : null}
       {globalState.token ? logOut : null}
       <Link to="/">Costumes</Link>
       <Link to="/draw">Draw a Picture</Link>
+      <div className="contact">
+        <a href="https://higginbotham.fun" target="#">
+          Portfolio
+        </a>
+        <a
+          href="https://www.linkedin.com/in/benjamin-alt-higginbotham/"
+          target="#"
+        >
+          LinkedIn
+        </a>
+      </div>
     </nav>
   );
 };
