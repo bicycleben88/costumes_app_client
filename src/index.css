@@ -88,6 +88,10 @@ nav {
   display: flex;
   justify-content: space-between;
 }
+nav .contact a + a {
+  padding-left: 5px;
+}
+
 header h1 {
   font-family: var(--main-font);
   font-size: 6em;
